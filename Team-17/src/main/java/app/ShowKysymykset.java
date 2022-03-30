@@ -41,8 +41,7 @@ public class ShowKysymykset extends HttpServlet {
 		}
 		request.setAttribute("kysymyksetlist", list);
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/vastaavaalikoneeseen.jsp");
-		rd.forward(request, response);
+		
 	}
 	
 }
