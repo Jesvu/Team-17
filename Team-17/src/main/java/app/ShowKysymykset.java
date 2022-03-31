@@ -14,14 +14,17 @@ import dao.Dao;
 import data.Kysymykset;
 
 
-@WebServlet("/showkysymykset")
+@WebServlet(	
+		name = "ShowKysymykset",
+		urlPatterns = {"/showkysymykset"}
+		)
 public class ShowKysymykset extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao=null;
 	
 	@Override
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
+		dao=new Dao();
 	}
        
    
@@ -33,15 +36,15 @@ public class ShowKysymykset extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Kysymykset> list=null;
-		if (dao.getConnection()) {
-			list=dao.readAllKysymykset();
-		}
-		else {
-			System.out.println("No connection to database");
-		}
+		dao=new Dao();
+		list=dao.readAllKysymykset();
 		request.setAttribute("kysymyksetlist", list);
 		
-		
+		if (list != null && list.size() > 0) {
+			
+		} else {
+			System.out.print("lista tyhjä");
+		}
 	}
 	
 }
