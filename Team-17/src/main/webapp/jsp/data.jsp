@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>All database rows</title>
+<title>Ehdokkaat</title>
 </head>
 <body>
 
-	<table>
+	<table border=1 width=50% height=50%>
 		<tr>
 			<th>Id</th>
 			<th>Sukunimi</th>
@@ -20,10 +20,10 @@
 			<th>Kotipaikkakunta</th>
 			<th>Ikä</th>
 			<th>Miksi eduskuntaan</th>
-			<th>Mita asioita haluat edistää</th>
+			<th>Mitä asioita haluat edistää</th>
 			<th>Ammatti</th>
 		</tr>
-		<c:forEach var="info" items="${sessionScope.allinfo}">
+		<c:forEach var="info" items="${sessionScope.allinfos}">
 			<tr>
 				<td>${info.id}</td>
 				<td>${info.sukunimi}</td>

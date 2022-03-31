@@ -1,6 +1,7 @@
 package app;
 
 	import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -15,7 +16,7 @@ import dao.Dao;
 
 	@WebServlet(
 	    name = "ShowData",
-	    urlPatterns = {"/showdata"}
+	    urlPatterns = {"/ehdokkaat"}
 	)
 	public class ShowData extends HttpServlet {
 
@@ -27,16 +28,21 @@ import dao.Dao;
 	@Override
 	  public void doGet(HttpServletRequest request, HttpServletResponse response) 
 		      throws IOException, ServletException {
+		System.out.println("doget");
 		HttpSession session = request.getSession();
+
 		
 		Dao dao = new Dao();
 		ArrayList<Info> infos = dao.readAllInfo();
+		
+		System.out.println("infos " + infos.size());
 		
 		session.setAttribute("allinfos", infos);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/data.jsp");
 		rd.forward(request,  response);
 	}
+
 			
 	  @Override
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) 

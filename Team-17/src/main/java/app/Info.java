@@ -62,7 +62,13 @@ public class Info implements Serializable {
 	public void setIka(int ika) {
 		this.ika = ika;
 	}
-
+	public void setIka(String s) {
+		try {
+			this.ika=Integer.parseInt(s);
+		}
+		catch(NumberFormatException e) {
+			this.ika=0;
+		}}
 	public String getMiksi_eduskuntaan() {
 		return miksi_eduskuntaan;
 	}
