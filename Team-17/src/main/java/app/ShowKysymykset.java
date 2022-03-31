@@ -22,29 +22,35 @@ public class ShowKysymykset extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao=null;
 	
+	/*
 	@Override
 	public void init() {
 		dao=new Dao();
 	}
-       
+       */
    
-    public ShowKysymykset() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Kysymykset> list=null;
+		System.out.println("doGet");
 		dao=new Dao();
 		list=dao.readAllKysymykset();
-		request.setAttribute("kysymyksetlist", list);
+		request.setAttribute("list", list);
 		
 		if (list != null && list.size() > 0) {
-			
+			System.out.println("lista " + list.size());
 		} else {
-			System.out.print("lista tyhjä");
+			System.out.println("lista tyhjä");
 		}
+		
+		response.setContentType("text/plain");
+	    response.setCharacterEncoding("UTF-8");
+
+	    response.getWriter().print("Lista " + list.size() + "!\r\n");
+	    
+	    RequestDispatcher rd=request.getRequestDispatcher("/jsp/data.jsp");
+		rd.forward(request, response);
 	}
 	
 }
