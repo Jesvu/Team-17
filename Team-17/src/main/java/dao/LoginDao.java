@@ -14,7 +14,7 @@ public class LoginDao
 		
 		try { 
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/gamedb", "pena", "kukkuu");
+			Connection conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setString(1, uname);
 			st.setString(2, pass);
