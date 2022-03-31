@@ -18,7 +18,7 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
+			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "appuser", "kukkuu");
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,6 +32,7 @@ public class Dao {
 			e.printStackTrace();
 		}}
 
+	
 
 	public ArrayList<Info> readAllInfo() {
 		ArrayList<Info> list=new ArrayList<>();
@@ -108,28 +109,31 @@ public class Dao {
 		return result;
 	}}
 
-		
-		
-//		 try {
-//		        Statement stmt = connection.createStatement();
-//		        String query = ("select * from ehdokkaat");
-//		    //person is the table name
-//		        ResultSet rs = stmt.executeQuery(query);
-//		        while (rs.next()) {
-//		            String id = rs.getObject(1).toString();
-//		            String sukunimi = rs.getObject(2).toString();
-//		            String etunimi = rs.getObject(3).toString();
-//		            String puolue = rs.getObject(4).toString();
-//		            String kotipaikkakunta = rs.getObject(5).toString();
-//		            String ika = rs.getObject(6).toString();
-//		            String miksi_eduskuntaan = rs.getObject(7).toString();
-//		            String mita_asioita_haluat_edistaa = rs.getObject(8).toString();
-//		            String ammatti = rs.getObject(9).toString();
-//		            System.out.println(id + sukunimi + etunimi + puolue + kotipaikkakunta + ika + miksi_eduskuntaan
-//					+ mita_asioita_haluat_edistaa + ammatti);
-//		        }
-//		        
-//		     catch (SQLException e) {
-//		        e.printStackTrace();
+
+
+//String sql = "SELECT * FROM ehdokkaat";
 //
+//Statement statement = conn.createStatement();
+//ResultSet result = statement.executeQuery(sql);
+//
+//int count = 0; {
+//
+//	while (result.next()) {
+//		String id = result.getObject(1).toString();
+//		String sukunimi = result.getObject(2).toString();
+//		String etunimi = result.getObject(3).toString();
+//		String puolue = result.getObject(4).toString();
+//		String kotipaikkakunta = result.getObject(5).toString();
+//		String ika = result.getObject(6).toString();
+//		String miksi_eduskuntaan = result.getObject(7).toString();
+//		String mita_asioita_haluat_edistaa = result.getObject(8).toString();
+//		String ammatti = result.getObject(9).toString();
+//		System.out.println(id + sukunimi + etunimi + puolue + kotipaikkakunta + ika + miksi_eduskuntaan
+//				+ mita_asioita_haluat_edistaa + ammatti);
+//	}}}}
+
+
+
+
+
 

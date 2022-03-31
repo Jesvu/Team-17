@@ -23,7 +23,7 @@
 			<th>Mita asioita haluat edistää</th>
 			<th>Ammatti</th>
 		</tr>
-		<c:forEach var="info" items="${sessionScope.allinfo}">
+		<c:forEach var="info" items="${sessionScope.allinfos}">
 			<tr>
 				<td>${info.id}</td>
 				<td>${info.sukunimi}</td>
