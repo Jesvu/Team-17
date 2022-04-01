@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<table>
+	<table border= 1>
 		<tr>
 			<th>Id</th>
 			<th>Sukunimi</th>

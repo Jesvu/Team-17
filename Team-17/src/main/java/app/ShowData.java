@@ -15,7 +15,7 @@ import dao.Dao;
 
 	@WebServlet(
 	    name = "ShowData",
-	    urlPatterns = {"/showdata"}
+	    urlPatterns = {"/ehdokkaat"}
 	)
 	public class ShowData extends HttpServlet {
 
@@ -27,18 +27,21 @@ import dao.Dao;
 	@Override
 	  public void doGet(HttpServletRequest request, HttpServletResponse response) 
 		      throws IOException, ServletException {
+		System.out.println("doget");
 		HttpSession session = request.getSession();
-		
+
+
 		Dao dao = new Dao();
 		ArrayList<Info> infos = dao.readAllInfo();
-		
-		session.setAttribute("allinfos", infos);
+
+		System.out.println("infos " + infos.size());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/data.jsp");
 		rd.forward(request,  response);
 	}
 			
 	  @Override
+
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) 
 		      throws IOException, ServletException {
 		  doGet(request, response);
