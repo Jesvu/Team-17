@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Dao;
 import data.Kysymykset;
@@ -31,26 +32,25 @@ public class ShowKysymykset extends HttpServlet {
    
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Kysymykset> list=null;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		System.out.println("doGet");
-		dao=new Dao();
-		list=dao.readAllKysymykset();
-		request.setAttribute("list", list);
+		HttpSession session = request.getSession();
 		
-		if (list != null && list.size() > 0) {
-			System.out.println("lista " + list.size());
-		} else {
-			System.out.println("lista tyhjä");
-		}
+		Dao dao=new Dao();
+		ArrayList<Kysymykset> kys = dao.readAllKysymykset();
 		
-		response.setContentType("text/plain");
-	    response.setCharacterEncoding("UTF-8");
+		System.out.println("infos " + kys.size());
 
-	    response.getWriter().print("Lista " + list.size() + "!\r\n");
+		session.setAttribute("allkysymykset", kys);
 	    
 	    RequestDispatcher rd=request.getRequestDispatcher("/jsp/data.jsp");
 		rd.forward(request, response);
 	}
-	
+		
+	 @Override
+	  public void doPost(HttpServletRequest request, HttpServletResponse response) 
+		      throws IOException, ServletException {
+		  doGet(request, response);
+	 }
 }
