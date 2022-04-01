@@ -1,6 +1,7 @@
 package app;
 
 	import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -30,18 +31,20 @@ import dao.Dao;
 		System.out.println("doget");
 		HttpSession session = request.getSession();
 
-
+		
 		Dao dao = new Dao();
 		ArrayList<Info> infos = dao.readAllInfo();
-
+		
 		System.out.println("infos " + infos.size());
+		
+		session.setAttribute("allinfos", infos);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/data.jsp");
 		rd.forward(request,  response);
 	}
+
 			
 	  @Override
-
 	  public void doPost(HttpServletRequest request, HttpServletResponse response) 
 		      throws IOException, ServletException {
 		  doGet(request, response);

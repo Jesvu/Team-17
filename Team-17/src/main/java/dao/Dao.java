@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,8 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import app.Info;
-import data.*;
 
 //import app.Info;
 //import data.info;
@@ -19,6 +21,7 @@ public class Dao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "appuser", "kukkuu");
+			                  
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,7 +35,6 @@ public class Dao {
 			e.printStackTrace();
 		}}
 
-	
 
 	public ArrayList<Info> readAllInfo() {
 		ArrayList<Info> list=new ArrayList<>();
@@ -54,13 +56,14 @@ public class Dao {
 				info.setAmmatti(rs.getString("ammatti"));
 				list.add(info);
 			}
+			
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
 		return list;
-	}
-}
+	}}
+
 
 
 
