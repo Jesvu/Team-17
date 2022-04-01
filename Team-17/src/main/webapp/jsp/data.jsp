@@ -36,12 +36,6 @@
 				<td>${info.ammatti}</td>
 			</tr>
 		</c:forEach>
-		<c:forEach var="k" items="${sessionScope.allkysymykset}">
-		<tr>
-				<td>${k.kysymys_id}</td>
-				<td>${k.kysymys}</td>
-			</tr>
-		</c:forEach>
 	</table>
 
 </body>

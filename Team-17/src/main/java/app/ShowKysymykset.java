@@ -44,7 +44,7 @@ public class ShowKysymykset extends HttpServlet {
 
 		session.setAttribute("allkysymykset", kys);
 	    
-	    RequestDispatcher rd=request.getRequestDispatcher("/jsp/data.jsp");
+	    RequestDispatcher rd=request.getRequestDispatcher("/jsp/kysymykset.jsp");
 		rd.forward(request, response);
 	}
 		
