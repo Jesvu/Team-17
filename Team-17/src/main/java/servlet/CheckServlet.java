@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.api.client.util.SecurityUtils;
 
 import dao.LoginDao;
+import security.SecurityUtils;
 
 @WebServlet(
 		name = "CheckServlet",
