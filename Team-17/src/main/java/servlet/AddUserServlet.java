@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,38 +13,36 @@ import com.google.api.client.util.SecurityUtils;
 import dao.LoginDao;
 
 @WebServlet(
-		name = "CheckServlet",
-		urlPatterns = {"/check"}
+		name = "AddUserServlet",
+		urlPatterns = {"/add"}
 		)
 
-public class CheckServlet extends HttpServlet {
-	
+public class AddUserServlet extends HttpServlet {
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+			throws IOException, ServletException {
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+		
 		response.sendRedirect("loginPage.html");
 	}
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
-		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
 		
 		LoginDao dao = new LoginDao();
 		
 		String uname = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		String salt = dao.getUserSalt(uname);
-		String hashpw = dao.getUserPasswordHash(uname);
+		String salt = SecurityUtils.getSalt();
+		String hashpw = SecurityUtils.getPasswordHashed(password, salt);
+		
+		dao.addUser(uname, hashpw, salt);
+		
 		
 		dao.close();
-		
-		if (SecurityUtils.isPasswordOk(hashpw, password, salt)) {
-			response.getWriter().println("Login success");
-		} else {
-			response.getWriter().println("Login failed");
-		}
-		
+		response.sendRedirect("loginPage.html");
 	}
 }
