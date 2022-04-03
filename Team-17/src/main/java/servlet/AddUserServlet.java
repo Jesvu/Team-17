@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.api.client.util.SecurityUtils;
-
 import dao.LoginDao;
+import security.SecurityUtils;
 
 @WebServlet(
 		name = "AddUserServlet",
@@ -22,6 +21,7 @@ public class AddUserServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		
@@ -39,10 +39,7 @@ public class AddUserServlet extends HttpServlet {
 		String salt = SecurityUtils.getSalt();
 		String hashpw = SecurityUtils.getPasswordHashed(password, salt);
 		
-		dao.addUser(uname, hashpw, salt);
-		
-		
 		dao.close();
-		response.sendRedirect("loginPage.html");
+		response.sendRedirect("Welcome.html");
 	}
 }
