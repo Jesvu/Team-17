@@ -25,26 +25,24 @@ public class Login extends HttpServlet {
 		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
-		
 		response.sendRedirect("loginPage.html");
 	}
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException
-	{
+			throws ServletException, IOException {
+		
 		String uname = request.getParameter("uname");
 		String pass = request.getParameter("pass");
 		
-		LoginDao LoginDao = new LoginDao();
+		LoginDao dao = new LoginDao();
 		
-		if(LoginDao.check(uname, pass))
-		{
+		if(dao.validate(uname, pass)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
-			response.sendRedirect("Welcome.html");
+			response.sendRedirect("adminPage.html");
 		}
 		else {
-			response.sendRedirect("LoginPage.html");
+			response.sendRedirect("loginPage.html");
 		}
 		
 	}	
