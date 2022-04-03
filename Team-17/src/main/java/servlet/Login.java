@@ -19,18 +19,25 @@ import dao.LoginDao;
 
 public class Login extends HttpServlet {
 	
-	public Login() {
-		super();
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+		
+		response.sendRedirect("loginPage.html");
 	}
 		
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException
 	{
 		String uname = request.getParameter("uname");
 		String pass = request.getParameter("pass");
 		
-		LoginDao dao = new LoginDao();
+		LoginDao LoginDao = new LoginDao();
 		
-		if(dao.check(uname, pass))
+		if(LoginDao.check(uname, pass))
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
