@@ -12,7 +12,7 @@ public class AddUserDao {
 	public AddUserDao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "appuser", "kukkuu");
+			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			
 			e.printStackTrace();
@@ -29,8 +29,8 @@ public class AddUserDao {
 		}
 	}
 	
-	public void addUser(String username, String pw, String salt) {
-		String sql = "insert into login (username, hashedpassword, salt) values (?,?,?)";
+	public void adding(String username, String pw, String salt) {
+		String sql = "insert into useraccount(username, hashedpassword, salt) values(?,?,?)";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
@@ -47,7 +47,7 @@ public class AddUserDao {
 	
 	public String getUserSalt(String username) {
 		String result = "";
-		String sql = "select salt from login where username = ?";
+		String sql = "select salt from useraccount where username = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
@@ -67,7 +67,7 @@ public class AddUserDao {
 	
 	public String getUserPasswordHash(String username) {
 		String result = "";
-		String sql = "select hashedpassword from login where username = ?";
+		String sql = "select hashedpassword from useraccount where username = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			

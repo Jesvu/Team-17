@@ -5,12 +5,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
+import javax.servlet.http.HttpSession;
+
 
 public class SecurityUtils {
 	
 	public static String getPasswordHashed(String password, String salt) {
 		String result = "";
-		
 		try {
 			// used hash function given (SHA-256)
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -38,5 +39,18 @@ public class SecurityUtils {
 		result = Base64.getEncoder().encodeToString(salt);
 		return result;
 	}
+	public static boolean isPasswordOk(String storedHash, String password, String storedSalt) {
+		 if ( storedHash.equals(getPasswordHashed(password, storedSalt))) {
+			 return true;
+			 
+		 }
+		 return false;
+	 }
+	 public static boolean isUserLogged(HttpSession session) {
+		 if (session != null && session.getAttribute("LoggedUser") != null) {
+			 return true;
+		 }
+		 return false;
+	 }
 
 }

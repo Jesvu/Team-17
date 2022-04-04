@@ -13,7 +13,7 @@ import servlet.security.SecurityUtils;
 
 @WebServlet(
 		name = "AddUser",
-		urlPatterns = {"/addUser"}
+		urlPatterns = {"/adding"}
 		)
 public class AddUser extends HttpServlet {
 	
@@ -39,7 +39,7 @@ public class AddUser extends HttpServlet {
 		String salt = SecurityUtils.getSalt();
 		String hashpw = SecurityUtils.getPasswordHashed(password, salt);
 		
-		dao.addUser(uname, hashpw, salt);
+		dao.adding(uname, hashpw, salt);
 		
 		dao.close();
 		response.sendRedirect("loginPage.html");
