@@ -25,9 +25,7 @@ public class Info implements Serializable {
 	}
 	public void setId(int id) {
 		this.id = id;
-	
 	}
-	
 	
 	public String getSukunimi() {
 		return sukunimi;
@@ -64,7 +62,6 @@ public class Info implements Serializable {
 	public void setIka(int ika) {
 		this.ika = ika;
 	}
-	
 	public void setIka(String s) {
 		try {
 			this.ika=Integer.parseInt(s);
@@ -72,7 +69,6 @@ public class Info implements Serializable {
 		catch(NumberFormatException e) {
 			this.ika=0;
 		}}
-		
 	public String getMiksi_eduskuntaan() {
 		return miksi_eduskuntaan;
 	}
@@ -100,5 +96,4 @@ public class Info implements Serializable {
 		return id+" "+sukunimi+" "+etunimi+" "+puolue+" "+kotipaikkakunta+" "+ika+" "+miksi_eduskuntaan+" "
 				+ ""+mita_asioita_haluat_edistaa+" "+ammatti+")";
 	}
-	
 }

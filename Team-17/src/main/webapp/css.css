@@ -1,0 +1,52 @@
+@charset "UTF-8";      
+        
+        body {
+        margin: 0;
+    
+      }
+
+      header, footer {
+        background:teal;
+        height: 100px;
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center;
+        color: black;
+        line-height: 100px;
+        margin: 0;
+      }
+
+      article {
+        padding: 10px;
+        margin: 10px;
+        background: lightblue;
+        flex-direction: column;
+      }
+
+      section {
+     display: flex;    
+     }
+      .page {
+      display: flex;
+     
+      }
+      
+      a{
+       display: block;
+      color: #000;
+      text-decoration: none;
+      }
+      
+      a:hover{
+  background-color: lightblue;
+}
+      .sidebar {
+        width: 100px;
+        font-size: x-large;
+        padding: 30px;
+        font-weight: bold;
+      }
+}
+    
