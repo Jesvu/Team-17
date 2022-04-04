@@ -64,3 +64,24 @@ public class Dao {
 		return list;
 	}}
 
+	}
+	
+	
+	public ArrayList<Kysymykset> readAllKysymykset() {
+		ArrayList<Kysymykset> list=new ArrayList<>();
+		try {
+			Statement stmt=conn.createStatement();
+			ResultSet RS=stmt.executeQuery("select * from kysymykset");
+			while (RS.next()){
+				Kysymykset k=new Kysymykset();
+				k.setKysymys_id(RS.getInt("kysymys_id"));
+				k.setKysymys(RS.getString("kysymys"));
+				list.add(k);
+			}
+			return list;
+		}
+		catch(SQLException s) {
+			return null;
+		}
+	}
+}

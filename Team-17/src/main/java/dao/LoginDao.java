@@ -3,30 +3,25 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class LoginDao
-{
-
-	public boolean check(String uname, String pass)
-	{
+public class LoginDao {
+	
+	public boolean validate(String name, String pass) {
+		boolean status = false;
 		
-		String sql = "select * from login where username=? and password=?";
-		
-		try { 
+		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			Connection conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
-			PreparedStatement st = conn.prepareStatement(sql);
-			st.setString(1, uname);
-			st.setString(2, pass);
-			ResultSet rs = st.executeQuery();
-			if (rs.next())
-			{
-				return true;
-			}
-				
-		} catch (Exception e) {
 			
-				e.printStackTrace();
-			}
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM LOGIN WHERE username=? and password=?");
+			ps.setString(1, name);
+			ps.setString(2, pass);
+			ResultSet rs = ps.executeQuery();
+			status=rs.next();
+		} 
+		catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {System.out.println(e);}
+			return status;
 	}
 }
+	
