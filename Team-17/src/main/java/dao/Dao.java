@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import app.Info;
+import data.Kysymykset;
 
 //import app.Info;
 //import data.info;
@@ -62,9 +63,8 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return list;
-	}}
-
 	}
+
 	
 	
 	public ArrayList<Kysymykset> readAllKysymykset() {

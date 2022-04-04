@@ -7,10 +7,35 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css.css">
+</head>
 <title>Kysymykset</title>
-<body>
+ <body>
+    <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
+  <section>
+  <div class="page" >
+            <div class="sidebar">
+              <div>
+             <a href='/hello'>The servlet</a>
+              </div>
+              &nbsp;
+              <div>
+                 <a href='/ehdokkaat'>Ehdokkaat</a>
+              </div> 
+              &nbsp;
+              <div>
+               <a href='/showkysymykset'>Kysymykset</a>
+            </div>
+            </div>
+            </div>
+            
+             <div class="article">
+        <div>
 
-	<table border=1 width=50% height=50%>
+          <article>
+          <p>
+
+	<table>
 		<tr>
 			<th>Id</th>
 		</tr>	
@@ -21,6 +46,21 @@
 			</tr>
 		</c:forEach>
 	</table>
+	  
+        </article>
+      
+   </div>
+   </section>
+   
+   <footer>
+        <h1>projekti</h1>
+    </footer>
+  </body>
+	
+
+</body>
+</html>
+	
 
 </body>
 </html>
