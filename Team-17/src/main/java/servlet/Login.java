@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.LoginDao;
+import servlet.security.SecurityUtils;
 
 @WebServlet(
     name = "Login",
@@ -34,9 +35,12 @@ public class Login extends HttpServlet {
 		String uname = request.getParameter("username");
 		String pass = request.getParameter("password");
 		
+		String salt = SecurityUtils.getSalt();
+		String hashpw = SecurityUtils.getPasswordHashed(pass, salt);
+		
 		LoginDao dao = new LoginDao();
 		
-		if(dao.validate(uname, pass)) {
+		if(dao.validate(uname, hashpw, salt)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
 			response.sendRedirect("adminPage.html");
