@@ -16,10 +16,10 @@ import data.Kysymykset;
 
 
 @WebServlet(	
-		name = "ShowKysymykset",
-		urlPatterns = {"/showkysymykset"}
+		name = "Deleteysymykset",
+		urlPatterns = {"/delete"}
 		)
-public class ShowKysymykset extends HttpServlet {
+public class DeleteKysymykset extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao=null;
 	

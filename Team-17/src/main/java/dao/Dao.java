@@ -61,6 +61,35 @@ public class Dao {
 		return list;
 	}
 	
+	public ArrayList<Kysymykset> addKysymys(Kysymykset k) {
+		try {
+			String sql="insert into kysymykset (kysymys,id) values(?,?)";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, k.getKysymys());
+			pstmt.setInt(2, k.getKysymys_id());
+			pstmt.executeUpdate();
+			
+		}
+		catch(SQLException e) {
+			
+		}
+		return readAllKysymykset();
+	}
+	
+	
+	public ArrayList<Kysymykset> deleteKysymys(String id) {
+		try {
+			String sql="delete from kysymykset where id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		
+		}
+		catch(SQLException e) {
+			
+		}
+		return readAllKysymykset();
+	}
 	
 	public ArrayList<Kysymykset> readAllKysymykset() {
 		ArrayList<Kysymykset> list=new ArrayList<>();
@@ -76,6 +105,25 @@ public class Dao {
 			return list;
 		}
 		catch(SQLException s) {
+			return null;
+		}
+	}
+	
+	public Kysymykset readKysymykset(String id) {
+		Kysymykset k=null;
+		try {
+			String sql="select * from kysymykset where id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()){
+				k=new Kysymykset();
+				k.setKysymys_id(RS.getInt("kysymys_id"));
+				k.setKysymys(RS.getString("kysymys"));
+			}
+			return k;
+		}
+		catch(SQLException e) {
 			return null;
 		}
 	}
