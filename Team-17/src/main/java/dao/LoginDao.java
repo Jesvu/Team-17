@@ -12,7 +12,7 @@ public class LoginDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
+			Connection conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "appuser", "kukkuu");
 			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM LOGIN WHERE username=? and password=?");
 			ps.setString(1, name);
