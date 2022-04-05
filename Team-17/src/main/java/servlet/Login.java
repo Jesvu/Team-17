@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.LoginDao;
+import dao.AddUserDao;
 import servlet.security.SecurityUtils;
 
 @WebServlet(
@@ -23,30 +23,29 @@ public class Login extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		response.sendRedirect("loginPage.html");
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws IOException {
 		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
-		response.sendRedirect("loginPage.html");
-	}
 		
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+		AddUserDao dao = new AddUserDao();
 		
 		String uname = request.getParameter("username");
 		String pass = request.getParameter("password");
 		
-		String salt = SecurityUtils.getSalt();
-		String hashpw = SecurityUtils.getPasswordHashed(pass, salt);
+		String salt = dao.getUserSalt(uname);
+		String hashpw = dao.getUserPasswordHash(uname);
 		
-		LoginDao dao = new LoginDao();
+		dao.close();
 		
-		if(dao.validate(uname, hashpw, salt)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username", uname);
+		if (SecurityUtils.isPasswordOk(hashpw, pass, salt)) {
 			response.sendRedirect("adminPage.html");
-		}
-		else {
-			response.sendRedirect("loginPage.html");
+		} else {
+			response.getWriter().println("Login failed");
 		}
 		
 	}	
