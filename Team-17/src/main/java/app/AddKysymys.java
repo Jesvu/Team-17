@@ -30,7 +30,7 @@ public class AddKysymys extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException {
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("/jsp/kysymykset.jsp");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {

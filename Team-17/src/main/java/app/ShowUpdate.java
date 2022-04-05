@@ -38,7 +38,7 @@ public class ShowUpdate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String kysymys_id=request.getParameter("id");
+		String kysymys_id=request.getParameter("kysymys_id");
 		Kysymykset k=null;
 		if (dao!=null) {
 			k=dao.readKysymykset(kysymys_id);

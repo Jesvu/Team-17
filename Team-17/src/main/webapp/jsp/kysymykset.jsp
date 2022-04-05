@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="app.ShowKysymykset"%>
+<%@ page import="data.Kysymykset"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +16,12 @@
 		<b>${k.kysymys}</b>
 		</p>
 		<br>
-<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> <a href="/admin/lisaakysymys.jsp">Lis‰‰ kysymys</a>
+<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
 <br>
-
 		</c:forEach>
+		<br>
+		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
+		<br>
 	
 
 </body>

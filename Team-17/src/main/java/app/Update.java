@@ -30,7 +30,7 @@ public class Update extends HttpServlet {
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
-		String kysymys_id=request.getParameter("id");
+		String kysymys_id=request.getParameter("kysymys_id");
 		String kysymys=request.getParameter("kysymys");
 		
 		Kysymykset k=new Kysymykset(kysymys_id, kysymys);
