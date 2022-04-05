@@ -10,10 +10,15 @@
 <title>Kysymykset</title>
 <body>
 
-		<c:forEach var="k" items="${sessionScope.allkysymykset}">
+
+		<c:forEach var="k" items="${requestScope.allkysymykset}">
 		<p><b>${k.kysymys_id}</b>
 		<b>${k.kysymys}</b>
 		</p>
+		<br>
+<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> <a href="/admin/lisaakysymys.jsp">Lis‰‰ kysymys</a>
+<br>
+
 		</c:forEach>
 	
 
