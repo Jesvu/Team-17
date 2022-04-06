@@ -32,7 +32,7 @@
              <div class="article">
         <div>
 
-
+<<<<<<< HEAD
           <article>
           <p>
 
@@ -61,7 +61,7 @@
 
 </body>
 </html>
-
+=======
 
 		<c:forEach var="k" items="${requestScope.allkysymykset}">
 		<p><b>${k.kysymys_id}</b>
@@ -74,7 +74,7 @@
 		<br>
 		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
 		<br>
-
+>>>>>>> Jussi
 	
 
 </body>
