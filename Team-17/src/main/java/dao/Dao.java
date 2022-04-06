@@ -129,20 +129,7 @@ public class Dao {
 		}
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	
-	
->>>>>>> d9dbe098b0a45a9bc414fb7e881520cb3675e518
 
-	
-	
-	
-	
-	
-}
-=======
 	public Kysymykset readKysymykset(String id) {
 		Kysymykset k=null;
 		try {
@@ -162,4 +149,4 @@ public class Dao {
 		}
 	}
 }
->>>>>>> Jussi
+
