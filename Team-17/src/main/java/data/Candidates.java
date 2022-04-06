@@ -26,6 +26,7 @@ public class Candidates {
 	public String getEtunimi() {
 		return etunimi;
 	}
+	
 	public void setEtunimi(String etunimi) {
 		this.etunimi = etunimi;
 	}
