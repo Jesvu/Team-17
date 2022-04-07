@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import app.Info;
-import data.Candidates;
 import data.Kysymykset;
 
 //import app.Info;
@@ -22,7 +21,7 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "appuser", "kukkuu");
+			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
 			                  
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -150,7 +149,7 @@ public class Dao {
 		}
 	}
 	
-	public int saveCandidate(Candidates candidate) {
+	public int saveCandidate(Info candidate) {
 		Statement stmt=null;
 		int count=0;
 		try {
@@ -163,16 +162,16 @@ public class Dao {
 		}
 		return count;
 }
-public ArrayList<Candidates> readAllCandidates() {
-	ArrayList<Candidates> list=new ArrayList<>();
+public ArrayList<Info> readAllCandidates() {
+	ArrayList<Info> list=new ArrayList<>();
 	Statement stmt=null;
 	int count=0;
 	try {
 		stmt = conn.createStatement();
 		ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
 		while (rs.next()) {
-			Candidates candidate=new Candidates();
-			candidate.setEhdokas_id(rs.getInt("EHDOKAS_ID"));
+			Info candidate=new Info();
+			candidate.setId(rs.getInt("EHDOKAS_ID"));
 			candidate.setSukunimi(rs.getString("SUKUNIMI"));
 			candidate.setEtunimi(rs.getString("ETUNIMI"));
 			candidate.setPuolue(rs.getString("PUOLUE"));
@@ -189,8 +188,8 @@ public ArrayList<Candidates> readAllCandidates() {
 	}
 	return list;
 }
-public Candidates getCandidateInfo(int ehdokas_id) {
-	Candidates result = null;
+public Info getCandidateInfo(int ehdokas_id) {
+	Info result = null;
 	String sql = "select * from ehdokkaat where ehdokas_id = ?";
 	try {
 		PreparedStatement stmt = conn.prepareStatement(sql);
@@ -200,8 +199,8 @@ public Candidates getCandidateInfo(int ehdokas_id) {
 		ResultSet resultset = stmt.executeQuery();
 		
 		if (resultset.next()) {
-			result = new Candidates();
-			result.setEhdokas_id(resultset.getInt("EHDOKAS_ID"));
+			result = new Info();
+			result.setId(resultset.getInt("EHDOKAS_ID"));
 			result.setSukunimi(resultset.getString("SUKUNIMI"));
 			result.setEtunimi(resultset.getString("ETUNIMI"));
 			result.setPuolue(resultset.getString("PUOLUE"));
@@ -217,7 +216,7 @@ public Candidates getCandidateInfo(int ehdokas_id) {
 	}
 	return result;
 }
-public int updateCandidate(Candidates candidate) {
+public int updateCandidate(Info candidate) {
 	int count = 0;
 	String sql = "update ehdokkaat set sukunimi = ?, etunimi = ?, puolue = ?, kotipaikkakunta = ? ika = ?, miksi_eduskuntaan = ?, mita_asioita_haluat_edistaa = ?, ammatti = ? where ehdokas_id = ?";
 	try {
@@ -231,7 +230,7 @@ public int updateCandidate(Candidates candidate) {
 		stmt.setString(6, candidate.getMiksi_eduskuntaan());
 		stmt.setString(7, candidate.getMita_asioita_haluat_edistaa());
 		stmt.setString(8, candidate.getAmmatti());
-		stmt.setInt(9, candidate.getEhdokas_id());
+		stmt.setInt(9, candidate.getId());
 		
 		count = stmt.executeUpdate();
 	} catch (SQLException e) {
@@ -239,6 +238,28 @@ public int updateCandidate(Candidates candidate) {
 		e.printStackTrace();
 	}
 	return count;
+}
+
+public ArrayList<Info> addCandidate(Info candidates) {
+	try {
+		String sql="insert into ehdokkaat (sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti, ehdokas_id) values (?,?,?,?,?,?,?,?,?)";
+		PreparedStatement stmt=conn.prepareStatement(sql);
+		stmt.setString(1, candidates.getSukunimi());
+		stmt.setString(2, candidates.getEtunimi());
+		stmt.setString(3, candidates.getPuolue());
+		stmt.setString(4, candidates.getKotipaikkakunta());
+		stmt.setInt(5, candidates.getIka());
+		stmt.setString(6, candidates.getMiksi_eduskuntaan());
+		stmt.setString(7, candidates.getMita_asioita_haluat_edistaa());
+		stmt.setString(8, candidates.getAmmatti());
+		stmt.setInt(9, candidates.getId());
+		stmt.executeUpdate();
+		
+	}
+	catch(SQLException e) {
+		
+	}
+	return readAllCandidates();
 }
 
 }
