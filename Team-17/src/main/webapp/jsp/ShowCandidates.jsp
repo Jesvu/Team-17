@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="data.Candidates" %>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>All datatable rows</title>
+<title>Candidates</title>
 </head>
 <body>
 
@@ -22,18 +17,17 @@
 	<th>Etunimi</th>
 	<th>Puolue</th>
 </tr>
-<c:forEach var="candidate" items="${sessionScope.allcandidates }">
+<c:forEach var="candidates" items="${requestScope.allcandidates }">
 	<tr>
-		<td>${candidate.ehdokas_id }</td>
-		<td>${candidate.sukunimi }</td>
-		<td>${candidate.etunimi }</td>
-		<td>${candidate.puolue }</td>
+		<td>${candidates.ehdokas_id }</td>
+		<td>${candidates.sukunimi }</td>
+		<td>${candidates.etunimi }</td>
+		<td>${candidates.puolue }</td>
 	 <td>
-	 <a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id }"> Muokkaa</a>
+	 <a href="/updatecan?ehdokas_id=${candidates.ehdokas_id }"> Muokkaa</a>
 	 </td>
-		
-	</tr>
 </c:forEach>
+
 </table>
 
 </body>

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import app.Info;
 import dao.Dao;
-import data.Candidates;
 
 @WebServlet(
 		name = "UpdateCandidate",
@@ -35,7 +35,7 @@ public class UpdateCandidate extends HttpServlet {
 				int ehdokas_id = Integer.parseInt(idValue);
 				
 				Dao dao = new Dao();
-				Candidates candidate = dao.getCandidateInfo(ehdokas_id);
+				Info candidate = dao.getCandidateInfo(ehdokas_id);
 				
 				session.setAttribute("candidate", candidate);
 				
@@ -61,7 +61,7 @@ public class UpdateCandidate extends HttpServlet {
 		
 		// Create connection
 		Dao dao=new Dao();
-		Candidates candidate = readCandidate(request);
+		Info candidate = readCandidate(request);
 		
 		dao.updateCandidate(candidate);
 		
@@ -73,9 +73,9 @@ public class UpdateCandidate extends HttpServlet {
 		response.sendRedirect("/showdata");
 	}
 	
-	private Candidates readCandidate(HttpServletRequest request) {
+	private Info readCandidate(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		Candidates candidate=new Candidates();
+		Info candidate=new Info();
 		candidate.setSukunimi(request.getParameter("SUKUNIMI"));
 		candidate.setEtunimi(request.getParameter("ETUNIMI"));
 		candidate.setPuolue(request.getParameter("PUOLUE"));
@@ -84,7 +84,7 @@ public class UpdateCandidate extends HttpServlet {
 		candidate.setMiksi_eduskuntaan(request.getParameter("MIKSI_EDUSKUNTAAN"));
 		candidate.setMita_asioita_haluat_edistaa(request.getParameter("MITA_ASIOITA_HALUAT_EDISTAA"));
 		candidate.setAmmatti(request.getParameter("AMMATTI"));
-		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("EHDOKAS_ID")));
+		candidate.setId(Integer.parseInt(request.getParameter("EHDOKAS_ID")));
 		return candidate;
 	}
 }
