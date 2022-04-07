@@ -37,7 +37,9 @@ public class AddKysymys extends HttpServlet {
 		String kysymys_id=request.getParameter("kysymys_id");
 		String kysymys=request.getParameter("kysymys");
 		
-		Kysymykset k=new Kysymykset(kysymys_id, kysymys);
+		int kysymysid = Integer.parseInt(kysymys_id);
+		
+		Kysymykset k=new Kysymykset(kysymysid, kysymys);
 		
 		ArrayList<Kysymykset> kys=null;
 		if (dao!=null) {
