@@ -1,13 +1,7 @@
 package app;
 
-import java.io.Serializable;
-
-public class Info implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private int id;
+public class Info {
+	private int ehdokas_id;
 	private String sukunimi;
 	private String etunimi;
 	private String puolue;
@@ -16,13 +10,29 @@ public class Info implements Serializable {
 	private String miksi_eduskuntaan;
 	private String mita_asioita_haluat_edistaa;
 	private String ammatti;
-	
-
-	public int getId() {
-		return id;
+	public Info(int ehdokas_id, String sukunimi, String etunimi, String puolue,
+			String kotipaikkakunta, int ika, String miksi_eduskuntaan,
+			String mita_asioita_haluat_edistaa, String ammatti) {
+		// TODO Auto-generated constructor stub
+		setEhdokas_id(ehdokas_id);
+		this.sukunimi=sukunimi;
+		this.etunimi=etunimi;
+		this.puolue=puolue;
+		this.kotipaikkakunta=kotipaikkakunta;
+		this.ika=ika;
+		this.miksi_eduskuntaan=miksi_eduskuntaan;
+		this.mita_asioita_haluat_edistaa=mita_asioita_haluat_edistaa;
+		this.ammatti=ammatti;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public Info() {
+		
+	}
+	
+	public int getEhdokas_id() {
+		return ehdokas_id;
+	}
+	public void setEhdokas_id(int id) {
+		this.ehdokas_id = id;
 	}
 	
 	public String getSukunimi() {
@@ -66,7 +76,8 @@ public class Info implements Serializable {
 		}
 		catch(NumberFormatException e) {
 			this.ika=0;
-		}}
+		}
+	}
 	public String getMiksi_eduskuntaan() {
 		return miksi_eduskuntaan;
 	}
@@ -88,10 +99,4 @@ public class Info implements Serializable {
 		this.ammatti = ammatti;
 	}
 	
-	
-	
-	public String toString() {
-		return id+" "+sukunimi+" "+etunimi+" "+puolue+" "+kotipaikkakunta+" "+ika+" "+miksi_eduskuntaan+" "
-				+ ""+mita_asioita_haluat_edistaa+" "+ammatti+")";
-	}
 }

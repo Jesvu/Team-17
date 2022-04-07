@@ -6,18 +6,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vaalikone</title>
+<title>Add a Candidate</title>
 
 </head>
 <body>
 <h1>Add a Candidate</h1>
 
 <form action='/addcandidate' method='post'>
-Candidate id: <input type='text' name='id' value=""placeholder="Lisää id"><br> 
-Candidate<br>
-<textarea name="Candidate" rows="5" cols="80">Kirjoita tähän</textarea>
-<br><br>
-<input class='input-paivita' type='submit' name='ok' value='add'> 
+Id: <input type='text' name='id' value=""placeholder="Add the id"><br> 
+Surname: <input type='text' name='sukunimi' value=""placeholder="Add the surname"><br> 
+Firstname: <input type='text' name='etunimi' value=""placeholder="Add the firstname"><br> 
+Party: <input type='text' name='puolue' value=""placeholder="Add the party"><br> 
+Domicile: <input type='text' name='kotipaikkakunta' value=""placeholder="Add the domicile"><br> 
+Age: <input type='number' name='ika' value=""placeholder="Add the age"><br> 
+Why to Parliament?: <input type='text' name='miksi' value="Add the reason"placeholder=""><br> 
+Progression interests: <input type='text' name='edistaa' value=""placeholder="Add the response"><br> 
+Occupation: <input type='text' name='ammatti' value=""placeholder="Add the occupation"><br> 
+<br>
+<input class='input-update' type='submit' name='ok' value='Submit'> 
 </form>
 <br>
 <br>

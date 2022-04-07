@@ -89,7 +89,7 @@
 						<div class="tiedot">
 							<h2>
 								<p>
-									<b>${info.id}.</b> ${info.etunimi} ${info.sukunimi}
+									<b>${info.ehdokas_id}.</b> ${info.etunimi} ${info.sukunimi}
 								</p>
 							</h2>
 
@@ -115,15 +115,15 @@
 			</article>
 
 <c:forEach var="info" items="${requestScope.allinfos}">
-		<p><b>${info.kysymys_id}</b>
+		<p><b>${info.ehdokas_id}</b>
 		<b>${info.kysymys}</b>
 		</p>
 		<br>
-<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${info.id}'>Muokkaa</a> 
+<a href='/delete?id=${info.ehdokas_id}'>Poista</a> <a href='/update?id=${info.id}'>Muokkaa</a> 
 <br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addcandidate.jsp">Lisää kysymys</a>
+		<a href="/jsp/addcandidate.jsp">Add a candidate</a>
 		<br>
 
 
