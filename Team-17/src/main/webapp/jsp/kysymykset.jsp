@@ -10,6 +10,62 @@
 <link rel="stylesheet" href="css.css">
 </head>
 <title>Kysymykset</title>
+
+ <body>
+
+   
+			<c:forEach var="k" items="${requestScope.allkysymykset}">
+
+    <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
+  <section>
+  <div class="page" >
+            <div class="sidebar">
+              <div>
+             <a href='/hello'>The servlet</a>
+              </div>
+              &nbsp;
+              <div>
+                 <a href='/ehdokkaat'>Ehdokkaat</a>
+              </div> 
+              &nbsp;
+              <div>
+               <a href='/showkysymykset'>Kysymykset</a>
+            </div>
+            </div>
+            </div>
+            
+             <div class="article">
+        <div>
+
+          <article>
+          <p>
+
+	<table>
+		<tr>
+			<th>Id</th>
+		</tr>	
+		<c:forEach var="k" items="${sessionScope.allkysymykset}">
+		<tr>
+				<td>${k.kysymys_id}</td>
+				<td>${k.kysymys}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	  
+        </article>
+      
+   </div>
+   </section>
+   
+   <footer>
+        <h1>projekti</h1>
+    </footer>
+  </body>
+	
+
+</body>
+</html>
+
 <body>
 
 		<c:forEach var="k" items="${requestScope.allkysymykset}">
@@ -22,8 +78,10 @@
 		<br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
+		<a href="/jsp/addkysymys.jsp">Lis√§√§ kysymys</a>
 		<br>
+
+
 
 </body>
 </html>

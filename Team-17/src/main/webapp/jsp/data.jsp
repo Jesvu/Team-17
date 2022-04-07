@@ -114,6 +114,19 @@
 					</c:forEach>
 			</article>
 
+<c:forEach var="info" items="${requestScope.allinfos}">
+		<p><b>${info.kysymys_id}</b>
+		<b>${info.kysymys}</b>
+		</p>
+		<br>
+<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${info.id}'>Muokkaa</a> 
+<br>
+		</c:forEach>
+		<br>
+		<a href="/jsp/addcandidate.jsp">Lisää kysymys</a>
+		<br>
+
+
 		</div>
 	</section>
 
