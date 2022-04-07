@@ -123,7 +123,7 @@
 <br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addcandidate.jsp">Lisää kysymys</a>
+		<a href="/jsp/addcandidate.jsp">Add a candidate</a>
 		<br>
 
 
