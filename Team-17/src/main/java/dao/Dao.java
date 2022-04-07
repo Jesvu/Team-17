@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 
 import app.Info;
-import data.Candidates;
 import data.Kysymykset;
 
 //import app.Info;
@@ -147,7 +146,7 @@ public class Dao {
 		}
 	}	
 	
-	public int saveCandidate(Candidates candidate) {
+	public int saveCandidate(Info candidate) {
 		Statement stmt=null;
 		int count=0;
 		try {
@@ -160,16 +159,16 @@ public class Dao {
 		}
 		return count;
 	}
-	public ArrayList<Candidates> readAllCandidates() {
-		ArrayList<Candidates> list=new ArrayList<>();
+	public ArrayList<Info> readAllCandidates() {
+		ArrayList<Info> list=new ArrayList<>();
 		Statement stmt=null;
 		int count=0;
 		try {
 			stmt = conn.createStatement();
 			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
 			while (rs.next()) {
-				Candidates candidate=new Candidates();
-				candidate.setEhdokas_id(rs.getInt("EHDOKAS_ID"));
+				Info candidate=new Info();
+				candidate.setId(rs.getInt("EHDOKAS_ID"));
 				candidate.setSukunimi(rs.getString("SUKUNIMI"));
 				candidate.setEtunimi(rs.getString("ETUNIMI"));
 				candidate.setPuolue(rs.getString("PUOLUE"));
@@ -186,8 +185,8 @@ public class Dao {
 		}
 		return list;
 	}
-	public Candidates getCandidateInfo(int ehdokas_id) {
-		Candidates result = null;
+	public Info getCandidateInfo(int ehdokas_id) {
+		Info result = null;
 		String sql = "select * from ehdokkaat where ehdokas_id = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -197,8 +196,8 @@ public class Dao {
 			ResultSet resultset = stmt.executeQuery();
 		
 			if (resultset.next()) {
-				result = new Candidates();
-				result.setEhdokas_id(resultset.getInt("EHDOKAS_ID"));
+				result = new Info();
+				result.setId(resultset.getInt("EHDOKAS_ID"));
 				result.setSukunimi(resultset.getString("SUKUNIMI"));
 				result.setEtunimi(resultset.getString("ETUNIMI"));
 				result.setPuolue(resultset.getString("PUOLUE"));
@@ -214,7 +213,7 @@ public class Dao {
 		}
 		return result;
 	}
-	public int updateCandidate(Candidates candidate) {
+	public int updateCandidate(Info candidate) {
 		int count = 0;
 		String sql = "update ehdokkaat set sukunimi = ?, etunimi = ?, puolue = ?, kotipaikkakunta = ? ika = ?, miksi_eduskuntaan = ?, mita_asioita_haluat_edistaa = ?, ammatti = ? where ehdokas_id = ?";
 		try {
@@ -228,7 +227,7 @@ public class Dao {
 			stmt.setString(6, candidate.getMiksi_eduskuntaan());
 			stmt.setString(7, candidate.getMita_asioita_haluat_edistaa());
 			stmt.setString(8, candidate.getAmmatti());
-			stmt.setInt(9, candidate.getEhdokas_id());
+			stmt.setInt(9, candidate.getId());
 		
 			count = stmt.executeUpdate();
 		} catch (SQLException e) {
