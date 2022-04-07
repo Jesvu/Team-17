@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: jussi
-=======
-Built-By: Jesse
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
+Built-By: jesse
 Build-Jdk: 11.0.14
 Created-By: Maven Integration for Eclipse
 
