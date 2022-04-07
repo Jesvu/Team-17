@@ -65,7 +65,7 @@ public class Dao {
 	}
 
 	
-	public ArrayList<Kysymykset> updateKysymys(Kysymykset k) {
+	public Kysymykset updateKysymys(Kysymykset k) {
 		try {
 			String sql="update kysymykset set kysymys =? where kysymys_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class Dao {
 		catch(SQLException e) {
 			
 		}
-		return readAllKysymykset();
+		return readKysymykset(String.valueOf(k.getKysymys_id()));
 	}
 	
 	public ArrayList<Kysymykset> addKysymys(Kysymykset k) {
@@ -127,10 +127,7 @@ public class Dao {
 			return null;
 		}
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
+
 
 	public Kysymykset readKysymykset(String id) {
 		Kysymykset k=null;
@@ -150,10 +147,7 @@ public class Dao {
 			return null;
 		}
 	}
-<<<<<<< HEAD
-}
-=======
-	
+
 	
 	public int saveCandidate(Candidates candidate) {
 		Statement stmt=null;
@@ -246,4 +240,3 @@ public class Dao {
 		return count;
 	}
 }
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
