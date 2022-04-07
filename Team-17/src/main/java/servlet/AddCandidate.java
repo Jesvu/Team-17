@@ -1,15 +1,22 @@
 package servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import app.Info;
 
@@ -76,6 +83,7 @@ public class AddCandidate extends HttpServlet {
 		response.sendRedirect("jsp/AddCandidate.jsp");
 	doGet(request, response);
 	}
+
 	
 }
 
@@ -84,4 +92,26 @@ public class AddCandidate extends HttpServlet {
 	 *      response)
 	 */
 	
+
+}
+
+@WebServlet(
+	    name = "AddCandidate",
+	    urlPatterns = {"/addC"}
+	)
+public class AddCandidate extends HttpServlet {
+	
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		response.sendRedirect("adminPage.html");
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws IOException {
+
+		
+	}
+}
+
 

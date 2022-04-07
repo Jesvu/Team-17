@@ -18,24 +18,29 @@ import data.Kysymykset;
     urlPatterns = {"/update"}
 )
 public class Update extends HttpServlet {
-	private Dao dao;
 	
-	public void init() {
-		dao=new Dao();
-	}
+	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-	     throws IOException {
-		response.sendRedirect("/showupdate");
+	     throws IOException, ServletException {
+		//String kysymys_id=request.getParameter("id");
+		//System.out.println("doget " + kysymys_id);
+		RequestDispatcher rd=request.getRequestDispatcher("/showupdate");
+		rd.forward(request, response);
+		//response.sendRedirect("/showupdate");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
 		String kysymys_id=request.getParameter("kysymys_id");
 		String kysymys=request.getParameter("kysymys");
 		
-		Kysymykset k=new Kysymykset(kysymys_id, kysymys);
+		int kysymysid = Integer.parseInt(kysymys_id);
 		
-		ArrayList<Kysymykset> kys=null;
+		Kysymykset k=new Kysymykset(kysymysid, kysymys);
+		
+		Kysymykset kys=null;
+		Dao dao = new Dao();
 		if (dao!=null) {
 			kys=dao.updateKysymys(k);
 		}

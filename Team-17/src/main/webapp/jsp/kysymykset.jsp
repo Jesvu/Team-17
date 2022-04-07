@@ -10,7 +10,12 @@
 <link rel="stylesheet" href="css.css">
 </head>
 <title>Kysymykset</title>
+
  <body>
+
+   
+			<c:forEach var="k" items="${requestScope.allkysymykset}">
+
     <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
   <section>
   <div class="page" >
@@ -61,17 +66,21 @@
 </body>
 </html>
 
+<body>
+
 		<c:forEach var="k" items="${requestScope.allkysymykset}">
+
 		<p><b>${k.kysymys_id}</b>
 		<b>${k.kysymys}</b>
 		</p>
 		<br>
-<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
-<br>
+		<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
+		<br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
+		<a href="/jsp/addkysymys.jsp">Lis√§√§ kysymys</a>
 		<br>
+
 
 
 </body>
