@@ -10,23 +10,20 @@
 <link rel="stylesheet" href="css.css">
 </head>
 <title>Kysymykset</title>
- <body>
-
+<body>
 
 		<c:forEach var="k" items="${requestScope.allkysymykset}">
 
-        <p><b>${k.kysymys_id}</b>
-        <b>${k.kysymys}</b>
-        </p>
-        <br>
-        <a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
-        <br>
-        </c:forEach>
-        <br>
-        <a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
-        <br>
-   
+		<p><b>${k.kysymys_id}</b>
+		<b>${k.kysymys}</b>
+		</p>
+		<br>
+		<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
+		<br>
+		</c:forEach>
+		<br>
+		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
+		<br>
 
 </body>
-	
 </html>
