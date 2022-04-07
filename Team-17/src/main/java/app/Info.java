@@ -16,10 +16,8 @@ public class Info implements Serializable {
 	private String miksi_eduskuntaan;
 	private String mita_asioita_haluat_edistaa;
 	private String ammatti;
+	
 
-	
-	
-	
 	public int getId() {
 		return id;
 	}
