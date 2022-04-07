@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css.css">
 </head>
 <title>Kysymykset</title>
+
  <body>
 
    
@@ -65,6 +66,8 @@
 </body>
 </html>
 
+<body>
+
 		<c:forEach var="k" items="${requestScope.allkysymykset}">
 
 		<p><b>${k.kysymys_id}</b>
@@ -75,7 +78,7 @@
 		<br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
+		<a href="/jsp/addkysymys.jsp">Lis√§√§ kysymys</a>
 		<br>
 
 

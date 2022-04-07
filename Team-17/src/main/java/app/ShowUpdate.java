@@ -19,11 +19,7 @@ import data.Kysymykset;
 public class ShowUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private Dao dao;
 	
-	public void init() {
-		dao = new Dao();
-	}
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,8 +34,10 @@ public class ShowUpdate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String kysymys_id=request.getParameter("kysymys_id");
+		String kysymys_id=request.getParameter("id");
+		//System.out.println("get " + kysymys_id);
 		Kysymykset k=null;
+		Dao dao = new Dao();
 		if (dao!=null) {
 			k=dao.readKysymykset(kysymys_id);
 		}

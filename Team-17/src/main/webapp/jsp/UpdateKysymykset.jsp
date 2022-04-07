@@ -13,8 +13,8 @@
 
 <h2>Muokkaa kysymystä</h2>
 <form action='./update' method='post'>
-	Kysymys: <input type='text' name='kysymys' value='${requestScope.k.kysymys}'><br>
-	<input type="hidden" name="kysymys_id" value="${requestScope.k.kysymys_id }">
+	Kysymys: <input type='text' name='kysymys' value='${requestScope.allkysymykset.kysymys}'><br>
+	<input type="hidden" name="kysymys_id" value="${requestScope.allkysymykset.kysymys_id }">
 	<input type='submit' name='ok' value='Edit'> 
 </form>
 <a href='/showkysymykset'>Takaisin hallintasivulle</a>
