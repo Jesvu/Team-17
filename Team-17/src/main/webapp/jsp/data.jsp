@@ -21,10 +21,7 @@
 	<section>
 		<div class="page">
 			<div class="sidebar">
-				<div>
-					<a href='/hello'>The servlet</a>
-				</div>
-				&nbsp;
+			
 				<div>
 					<a href='/ehdokkaat'>Ehdokkaat</a>
 				</div>

@@ -7,22 +7,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="/css.css">
 </head>
 <title>Kysymykset</title>
  <body>
-<<<<<<< HEAD
    
-			<c:forEach var="k" items="${requestScope.allkysymykset}">
-=======
+
     <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
   <section>
   <div class="page" >
             <div class="sidebar">
-              <div>
-             <a href='/hello'>The servlet</a>
-              </div>
-              &nbsp;
+          
               <div>
                  <a href='/ehdokkaat'>Ehdokkaat</a>
               </div> 
@@ -42,33 +37,18 @@
 
 	<table>
 		<tr>
-			<th>Id</th>
+		
 		</tr>	
 		<c:forEach var="k" items="${sessionScope.allkysymykset}">
+			
 		<tr>
 				<td>${k.kysymys_id}</td>
 				<td>${k.kysymys}</td>
 			</tr>
 		</c:forEach>
 	</table>
-	  
-        </article>
-      
-   </div>
-   </section>
-   
-   <footer>
-        <h1>projekti</h1>
-    </footer>
-  </body>
-	
-
-</body>
-</html>
-
-
-		<c:forEach var="k" items="${requestScope.allkysymykset}">
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
+		<div class="tiedot">
+	  	<c:forEach var="k" items="${requestScope.allkysymykset}">
 		<p><b>${k.kysymys_id}</b>
 		<b>${k.kysymys}</b>
 		</p>
@@ -79,11 +59,22 @@
 		<br>
 		<a href="/jsp/addkysymys.jsp">Lisää kysymys</a>
 		<br>
-<<<<<<< HEAD
-=======
+   
+	  </div>
+        </article>
+      
+   </div>
+   </section>
+ 
+   
+   <footer>
+        <h1>projekti</h1>
+    </footer>
+  </body>
+	
+
 
 	
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
 
 </body>
 </html>

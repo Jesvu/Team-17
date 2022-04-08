@@ -15,7 +15,7 @@ import data.Candidates;
 
 @WebServlet(
 		name = "UpdateCandidate",
-		urlPatterns = "/update"
+		urlPatterns = "/updatecan"
 )
 
 public class UpdateCandidate extends HttpServlet {

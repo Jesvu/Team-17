@@ -127,10 +127,7 @@ public class Dao {
 			return null;
 		}
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
+
 
 	public Kysymykset readKysymykset(String id) {
 		Kysymykset k=null;
@@ -150,9 +147,7 @@ public class Dao {
 			return null;
 		}
 	}
-<<<<<<< HEAD
-}
-=======
+
 	
 	
 	public int saveCandidate(Candidates candidate) {
@@ -246,4 +241,4 @@ public class Dao {
 		return count;
 	}
 }
->>>>>>> parent of dae58d4 (Revert "Candidate edit stuff")
+
