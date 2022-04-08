@@ -147,7 +147,6 @@ public class Dao {
 		}
 	}
 
-
 	
 	public int addCandidate(Info info) {
 		Statement stmt=null;
