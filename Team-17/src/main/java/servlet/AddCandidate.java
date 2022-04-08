@@ -2,11 +2,16 @@ package servlet;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import java.io.PrintWriter;
+
 import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 
 
@@ -17,10 +22,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import dao.Dao;
 import app.Info;
 
-@WebServlet("/addcandidate")
+@WebServlet(
+		name = "AddCandidate",
+		urlPatterns = {"/addcandidate"}
+		)
+
+
 public class AddCandidate extends HttpServlet {
+
 
 	
 	private static final long serialVersionUID = 1L;
@@ -28,40 +40,52 @@ public class AddCandidate extends HttpServlet {
 	
 	public void init() {
 		dao = new Dao();
+
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws IOException, ServletException {
+		doGet(request, response);
 	}
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.sendRedirect("/jsp/data.jsp");
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int ehdokas_id = Integer.parseInt(request.getParameter("ehdokas_id"));
-		String sukunimi = request.getParameter("sukunimi");
-		String etunimi = request.getParameter("etunimi");
-		String puolue = request.getParameter("puolue");
-		String kotipaikkakunta = request.getParameter("kotipaikkakunta");
-		int ika = Integer.parseInt(request.getParameter("ika"));
-		String miksi = request.getParameter("miksi_eduskuntaan");
-		String mita = request.getParameter("mita_asioita_haluat_edistaa");
-		String ammatti = request.getParameter("ammatti");
+	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws IOException, ServletException {
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
 
-
-			Info i = new Info(ehdokas_id, sukunimi, etunimi, puolue, kotipaikkakunta,
-					ika, miksi, mita, ammatti);
-			
-			ArrayList<Info> info=null;
-			if (dao!=null) {
-				info = dao.addCandidate(i);
-			}
-			
-			request.setAttribute("allcandidates", info);
-			RequestDispatcher rd=request.getRequestDispatcher("/jsp/data.jsp");
-			rd.forward(request, response);
 		
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/data.jsp");
+		rd.include(request,  response);;
+		
+		Info info = readCandidate(request);
+		
+		// Create connection
+		Dao dao=new Dao();
+		
+		// Save value and query total list
+		dao.addCandidate(info);
+		ArrayList<Info> list=dao.readAllCandidates();
+		
+		// print output and close connection
+		printCandidateList(out, list);
+		dao.close();
+
+	}
+
+
+	private Info readCandidate(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		Info candidate=new Info();
+		candidate.setSukunimi(request.getParameter("sukunimi"));
+		candidate.setEtunimi(request.getParameter("etunimi"));
+		candidate.setPuolue(request.getParameter("puolue"));
+		candidate.setKotipaikkakunta(request.getParameter("kotipaikkakunta"));
+		candidate.setIka(Integer.parseInt(request.getParameter("ika")));
+		candidate.setMiksi_eduskuntaan(request.getParameter("miksi_eduskuntaan"));
+		candidate.setMita_asioita_haluat_edistaa(request.getParameter("mita_asioita_haluat_edistaa"));
+		candidate.setAmmatti(request.getParameter("ammatti"));
+		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("ehdokas_id")));
+		return candidate;
 	}
 
 
@@ -159,6 +183,18 @@ public class AddCandidate extends HttpServlet {
 
 	
 
+
 }
 
+
+
+	private void printCandidateList(PrintWriter out, ArrayList<Info> list) {
+		out.println("<ul>");
+		for (Info g:list) {
+			out.println("<li>"+g);
+		}
+		out.println("</ul>");
+	}
+
+}
 
