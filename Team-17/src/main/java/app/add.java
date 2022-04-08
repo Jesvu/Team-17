@@ -70,7 +70,7 @@ import app.Info;
 			info.setEtunimi(request.getParameter("etunimi"));
 			info.setPuolue(request.getParameter("puolue"));
 			info.setKotipaikkakunta(request.getParameter("kotipaikkakunta"));
-			info.setIka(request.getParameter("ika"));
+			info.setIka(Integer.parseInt(request.getParameter("ika")));
 			info.setMiksi_eduskuntaan(request.getParameter("miksi_eduskuntaan"));
 			info.setMita_asioita_haluat_edistaa(request.getParameter("mita_asioita_haluat_edistaa"));
 			info.setAmmatti(request.getParameter("ammatti"));

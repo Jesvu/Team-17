@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css.css">
 <title>Ehdokkaat</title>
 
@@ -114,17 +114,24 @@
 					</c:forEach>
 			</article>
 
-<c:forEach var="info" items="${requestScope.allinfos}">
-		<p><b>${info.ehdokas_id}</b>
-		<b>${info.kysymys}</b>
-		</p>
-		<br>
-<a href='/delete?id=${info.ehdokas_id}'>Poista</a> <a href='/update?id=${info.id}'>Muokkaa</a> 
-<br>
-		</c:forEach>
+<c:forEach var="info" items="${sessionScope.allinfos }">
+	<tr>
+		<td>${info.ehdokas_id }</td>
+		<td>${info.sukunimi }</td>
+		<td>${info.etunimi }</td>
+		<td>${info.puolue }</td>
+	 <td>
+	 <a href="/editcandidate?ehdokas_id=${info.ehdokas_id }"> Muokkaa</a> <br>
+	 </td>
+	 <td>
+	 <a href="/removecandidate?ehdokas_id=${info.ehdokas_id }">Poista</a>
+		
+	</tr>
+</c:forEach>
 		<br>
 		<a href="/jsp/addcandidate.jsp">Add a candidate</a>
 		<br>
+		
 
 
 		</div>
