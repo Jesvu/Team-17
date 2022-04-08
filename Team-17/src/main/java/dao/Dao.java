@@ -147,7 +147,6 @@ public class Dao {
 		}
 	}
 
-
 	
 	public ArrayList<Info> addCandidate(Info i ) {
 		try {

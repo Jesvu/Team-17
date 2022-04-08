@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="/css.css">
 </head>
 <title>Kysymykset</title>
 
@@ -15,15 +15,13 @@
 
    
 			<c:forEach var="k" items="${requestScope.allkysymykset}">
+   
 
     <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
   <section>
   <div class="page" >
             <div class="sidebar">
-              <div>
-             <a href='/hello'>The servlet</a>
-              </div>
-              &nbsp;
+          
               <div>
                  <a href='/ehdokkaat'>Ehdokkaat</a>
               </div> 
@@ -42,34 +40,18 @@
 
 	<table>
 		<tr>
-			<th>Id</th>
+		
 		</tr>	
 		<c:forEach var="k" items="${sessionScope.allkysymykset}">
+			
 		<tr>
 				<td>${k.kysymys_id}</td>
 				<td>${k.kysymys}</td>
 			</tr>
 		</c:forEach>
 	</table>
-	  
-        </article>
-      
-   </div>
-   </section>
-   
-   <footer>
-        <h1>projekti</h1>
-    </footer>
-  </body>
-	
-
-</body>
-</html>
-
-<body>
-
-		<c:forEach var="k" items="${requestScope.allkysymykset}">
-
+		<div class="tiedot">
+	  	<c:forEach var="k" items="${requestScope.allkysymykset}">
 		<p><b>${k.kysymys_id}</b>
 		<b>${k.kysymys}</b>
 		</p>
@@ -78,10 +60,32 @@
 		<br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addkysymys.jsp">Lisää kysymys</a>
+		<a href="/jsp/addkysymys.jsp">Lis�� kysymys</a>
 		<br>
+ 
+	  </div>
+        </article>
+      
+   </div>
+   </section>
+ 
+   
+   <footer>
+        <h1>projekti</h1>
+    </footer>
+
+	
+
+</body>
+</html>
 
 
+
+	
+
+
+
+	
 
 </body>
 </html>
