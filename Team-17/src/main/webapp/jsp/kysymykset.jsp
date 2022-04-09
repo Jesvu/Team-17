@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="/css.css">
 </head>
 <title>Kysymykset</title>
@@ -56,7 +56,7 @@
 		<br>
 		</c:forEach>
 		<br>
-		<a href="/jsp/addkysymys.jsp">Lisï¿½ï¿½ kysymys</a>
+		<a href="/jsp/addkysymys.jsp">Lisää kysymys</a>
 		<br>
  
 	  </div>
