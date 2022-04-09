@@ -104,7 +104,14 @@
 		<artifactId>mysql-connector-java</artifactId>
 		<version>8.0.28</version>
 	</dependency>
-     
+        <!-- This is needed to be able to connect to MySQL database. -->
+		<!-- If using MySQL 8, the version should be 8.0.11. -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.jpa</artifactId>

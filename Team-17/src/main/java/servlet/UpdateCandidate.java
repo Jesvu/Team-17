@@ -84,7 +84,7 @@ public class UpdateCandidate extends HttpServlet {
 		candidate.setMiksi_eduskuntaan(request.getParameter("MIKSI_EDUSKUNTAAN"));
 		candidate.setMita_asioita_haluat_edistaa(request.getParameter("MITA_ASIOITA_HALUAT_EDISTAA"));
 		candidate.setAmmatti(request.getParameter("AMMATTI"));
-		candidate.setId(Integer.parseInt(request.getParameter("EHDOKAS_ID")));
+		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("EHDOKAS_ID")));
 		return candidate;
 	}
 }
