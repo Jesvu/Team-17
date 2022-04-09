@@ -13,10 +13,6 @@
 
  <body>
 
-   
-
-   
-
     <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
   <section>
   <div class="page" >

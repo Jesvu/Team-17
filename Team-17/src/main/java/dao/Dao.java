@@ -278,8 +278,7 @@ public Info getCandidateInfo(int ehdokas_id) {
 	}
 	return result;
 }
-	
-	public ArrayList<Info> ReadingAllCandidates() {
+public ArrayList<Info> ReadingAllCandidates() {
 		ArrayList<Info> list=new ArrayList<>();
 		Statement stmt=null;
 		int count=0;
@@ -305,7 +304,6 @@ public Info getCandidateInfo(int ehdokas_id) {
 		}
 		return list;
 	}
-
 
 }
 
