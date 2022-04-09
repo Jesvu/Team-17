@@ -226,7 +226,7 @@ public Info ReadAllCandidates(int ehdokas_id) {
 	return result;
 }
 
-public int updateCandidate(Info info) {
+public static int updateCandidate(Info info) {
 	int count = 0;
 	String sql = "update ehdokkaat set SUKUNIMI = ?, ETUNIMI = ?, PUOLUE = ?, KOTIPAIKKAKUNTA= ? IKA = ?, MIKSI_EDUSKUNTAAN= ?, MITA_ASIOITA_HALUAT_EDISTAA= ?, AMMATTI = ? where EHDOKAS_ID = ?";
 	try {
@@ -256,7 +256,7 @@ public Info getCandidateInfo(int ehdokas_id) {
 	try {
 		PreparedStatement stmt = conn.prepareStatement(sql);
 					
-		stmt.setInt(1, ehdokas_id);
+		stmt.setLong(1, ehdokas_id);
 		
 		ResultSet resultset = stmt.executeQuery();
 		
