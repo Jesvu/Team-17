@@ -304,33 +304,6 @@ public ArrayList<Info> ReadingAllCandidates() {
 		}
 		return list;
 	}
-	public ArrayList<Info> readAllCandidates() {
-		ArrayList<Info> list=new ArrayList<>();
-		Statement stmt=null;
-		int count=0;
-		try {
-			stmt = conn.createStatement();
-			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
-			while (rs.next()) {
-				Info candidate=new Info();
-				candidate.setEhdokas_id(rs.getInt("EHDOKAS_ID"));
-				candidate.setSukunimi(rs.getString("SUKUNIMI"));
-				candidate.setEtunimi(rs.getString("ETUNIMI"));
-				candidate.setPuolue(rs.getString("PUOLUE"));
-				candidate.setKotipaikkakunta(rs.getString("KOTIPAIKKAKUNTA"));
-				candidate.setIka(rs.getInt("IKA"));
-				candidate.setMiksi_eduskuntaan(rs.getString("MIKSI_EDUSKUNTAAN"));
-				candidate.setMita_asioita_haluat_edistaa(rs.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
-				candidate.setAmmatti(rs.getString("Ammatti"));
-				list.add(candidate);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return list;
-	}
-
 
 }
 
