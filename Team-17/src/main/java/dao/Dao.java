@@ -294,10 +294,6 @@ public Info getCandidateInfo(int ehdokas_id) {
 }
 
 
-}
-
-
-
 
 	}
 	public ArrayList<Info> readAllCandidates() {
