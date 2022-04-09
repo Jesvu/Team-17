@@ -27,7 +27,7 @@ public class EditCandidate extends HttpServlet {
 		// if sessions does not exist, create new one
 		HttpSession session = request.getSession();
 		
-		String idValue = request.getParameter("ehdokas_id");
+		String idValue = request.getParameter("EHDOKAS_ID");
 		
 		if ( idValue != null ) {
 			try {
@@ -80,7 +80,7 @@ public class EditCandidate extends HttpServlet {
 		candidate.setIka(Integer.parseInt(request.getParameter("IKA")));
 		candidate.setMiksi_eduskuntaan(request.getParameter("MIKSI_EDUSKUNTAAN"));
 		candidate.setMita_asioita_haluat_edistaa(request.getParameter("MITA_ASIOITA_HALUAT_EDISTAA"));
-		candidate.setAmmatti(request.getParameter("ammatti"));
+		candidate.setAmmatti(request.getParameter("AMMATTI"));
 		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("EHDOKAS_ID")));
 		return candidate;
 	}

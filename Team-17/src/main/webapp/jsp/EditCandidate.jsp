@@ -20,20 +20,19 @@ font-size: x-large;
 text-align: center;
 }
 </style>
-<body>
 
+<body>
 	<form action='./editcandidate' method='post'>
-		Sukunimi: <input type='text' name='sukunimi' value='${sessionScope.info.sukunimi }'><br>
-		Etunimi: <input type='text' name='etunimi' value='${sessionScope.info.etunimi }'><br>
-		Puolue:   <input type='text' name='puolue' value='${sessionScope.info.puolue }'><br>
-		Kotipaikkakunta: <input type='text' name='kotipaikkakunta' value='${sessionScope.info.kotipaikkakunta }'><br>
-		Ikä: <input type='number' name='ika' value='${sessionScope.info.ika }'><br>
-		Miksi eduskuntaan?: <input type='text' name='miksi_eduskuntaan' value='${sessionScope.info.miksi_eduskuntaan }'><br>
-		Mitä asioita haluat edistaa?: <input type='text' name='mita_asioita_haluat_edistaa' value='${sessionScope.info.mita_asioita_haluat_edistaa }'><br>
-		Ammatti:<input type='text' name='ammatti' value='${sessionScope.info.ammatti }'><br>
-		<input type="hidden" name="ehdokas_id" value="${sessionScope.info.ehdokas_id }">		
+		Sukunimi: <input type='text' name='SUKUNIMI' value='${sessionScope.info.sukunimi }'><br>
+		Etunimi: <input type='text' name='ETUNIMI' value='${sessionScope.info.etunimi }'><br>
+		Puolue:   <input type='text' name='PUOLUE' value='${sessionScope.info.puolue }'><br>
+		Kotipaikkakunta: <input type='text' name='KOTIPAIKKAKUNTA' value='${sessionScope.info.kotipaikkakunta }'><br>
+		Ikä: <input type='number' name='IKA' value='${sessionScope.info.ika }'><br>
+		Miksi eduskuntaan?: <input type='text' name='MIKSI_EDUSKUNTAAN' value='${sessionScope.info.miksi_eduskuntaan }'><br>
+		Mitä asioita haluat edistaa?: <input type='text' name='MITA_ASIOITA_HALUAT_EDISTAA' value='${sessionScope.info.mita_asioita_haluat_edistaa }'><br>
+		Ammatti:<input type='text' name='AMMATTI' value='${sessionScope.info.ammatti }'><br>
+		<input type="hidden" name="EHDOKAS_ID" value="${sessionScope.info.ehdokas_id }">		
 		<input type='submit' name='ok' value='Edit'>
 	</form>
-
 </body>
 </html>

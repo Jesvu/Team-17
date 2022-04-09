@@ -12,7 +12,7 @@
 <body>
 <h1>Add a Candidate</h1>
 
-<form action='/addcandidate' method='post'>
+<form action='/add' method='post'>
 Id: <input type='text' name='id' value=""placeholder="Add the id"><br> 
 Surname: <input type='text' name='sukunimi' value=""placeholder="Add the surname"><br> 
 Firstname: <input type='text' name='etunimi' value=""placeholder="Add the firstname"><br> 
