@@ -152,37 +152,23 @@ public class Dao {
 		Statement stmt=null;
 		int count=0;
 		try {
-
 			String sql="insert into ehdokkaat (ehdokas_id, sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti) values(?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, i.getEhdokas_id());
-			pstmt.setString(2, i.getSukunimi());
-			pstmt.setString(3, i.getEtunimi());
-			pstmt.setString(4, i.getPuolue());
-			pstmt.setString(5, i.getKotipaikkakunta());
-			pstmt.setInt(6, i.getIka());
-			pstmt.setString(7, i.getMiksi_eduskuntaan());
-			pstmt.setString(8, i.getMita_asioita_haluat_edistaa());
-			pstmt.setString(9, i.getAmmatti());
+			pstmt.setInt(1, info.getEhdokas_id());
+			pstmt.setString(2, info.getSukunimi());
+			pstmt.setString(3, info.getEtunimi());
+			pstmt.setString(4, info.getPuolue());
+			pstmt.setString(5, info.getKotipaikkakunta());
+			pstmt.setInt(6, info.getIka());
+			pstmt.setString(7, info.getMiksi_eduskuntaan());
+			pstmt.setString(8, info.getMita_asioita_haluat_edistaa());
+			pstmt.setString(9, info.getAmmatti());
 			pstmt.executeUpdate();
-		}
-
-		return count;
-
-}
-
-		catch(SQLException e) {
-			
-
-			stmt = conn.createStatement();
-			count=stmt.executeUpdate("insert into ehdokkaat(ehdokas_id, sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti) values("+info.getEhdokas_id()+", '"+info.getSukunimi()+"', '"+info.getEtunimi()+"', '"+info.getPuolue()+"', '"+info.getKotipaikkakunta()+"', "+info.getIka()+", '"+info.getMiksi_eduskuntaan()+"', '"+info.getMita_asioita_haluat_edistaa()+"', '"+info.getAmmatti()+"')");
-		} catch (SQLException e) { 
+		}catch(SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-
 		}
 		return count;
-
 	}
 
 public ArrayList<Info> readAllCandidates() {
@@ -292,21 +278,9 @@ public Info getCandidateInfo(int ehdokas_id) {
 	}
 	return result;
 }
-
-
-}
-
-
-
-
-	}
-	public ArrayList<Info> readAllCandidates() {
+	
+	public ArrayList<Info> ReadingAllCandidates() {
 		ArrayList<Info> list=new ArrayList<>();
-
-}
-	public ArrayList<Candidates> readAllCandidates() {
-		ArrayList<Candidates> list=new ArrayList<>();
-
 		Statement stmt=null;
 		int count=0;
 		try {
@@ -314,7 +288,7 @@ public Info getCandidateInfo(int ehdokas_id) {
 			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
 			while (rs.next()) {
 				Info candidate=new Info();
-				candidate.setId(rs.getInt("EHDOKAS_ID"));
+				candidate.setEhdokas_id(rs.getInt("EHDOKAS_ID"));
 				candidate.setSukunimi(rs.getString("SUKUNIMI"));
 				candidate.setEtunimi(rs.getString("ETUNIMI"));
 				candidate.setPuolue(rs.getString("PUOLUE"));
@@ -331,56 +305,7 @@ public Info getCandidateInfo(int ehdokas_id) {
 		}
 		return list;
 	}
-	public Info getCandidateInfo(int ehdokas_id) {
-		Info result = null;
-		String sql = "select * from ehdokkaat where ehdokas_id = ?";
-		try {
-			PreparedStatement stmt = conn.prepareStatement(sql);
-					
-			stmt.setInt(1, ehdokas_id);
-		
-			ResultSet resultset = stmt.executeQuery();
-		
-			if (resultset.next()) {
-				result = new Info();
-				result.setId(resultset.getInt("EHDOKAS_ID"));
-				result.setSukunimi(resultset.getString("SUKUNIMI"));
-				result.setEtunimi(resultset.getString("ETUNIMI"));
-				result.setPuolue(resultset.getString("PUOLUE"));
-				result.setKotipaikkakunta(resultset.getString("KOTIPAIKKAKUNTA"));
-				result.setIka(resultset.getInt("IKA"));
-				result.setMiksi_eduskuntaan(resultset.getString("MIKSI_EDUSKUNTAAN"));
-				result.setMita_asioita_haluat_edistaa(resultset.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
-				result.setAmmatti(resultset.getString("AMMATTI"));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return result;
-	}
-	public int updateCandidate(Info candidate) {
-		int count = 0;
-		String sql = "update ehdokkaat set sukunimi = ?, etunimi = ?, puolue = ?, kotipaikkakunta = ? ika = ?, miksi_eduskuntaan = ?, mita_asioita_haluat_edistaa = ?, ammatti = ? where ehdokas_id = ?";
-		try {
-			PreparedStatement stmt = conn.prepareStatement(sql);
-		
-			stmt.setString(1, candidate.getSukunimi());
-			stmt.setString(2, candidate.getEtunimi());
-			stmt.setString(3, candidate.getPuolue());
-			stmt.setString(4, candidate.getKotipaikkakunta());
-			stmt.setInt(5, candidate.getIka());
-			stmt.setString(6, candidate.getMiksi_eduskuntaan());
-			stmt.setString(7, candidate.getMita_asioita_haluat_edistaa());
-			stmt.setString(8, candidate.getAmmatti());
-			stmt.setInt(9, candidate.getId());
-		
-			count = stmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return count;
-	}
+
+
 }
 

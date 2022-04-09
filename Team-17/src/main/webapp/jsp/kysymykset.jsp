@@ -14,7 +14,7 @@
  <body>
 
    
-			<c:forEach var="k" items="${requestScope.allkysymykset}">
+
    
 
     <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
