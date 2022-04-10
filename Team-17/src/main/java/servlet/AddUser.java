@@ -24,7 +24,7 @@ public class AddUser extends HttpServlet {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		
-		response.sendRedirect("loginPage.html");
+		response.sendRedirect("jsp/AdminPage.jsp");
 	}
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +42,7 @@ public class AddUser extends HttpServlet {
 		dao.adding(uname, hashpw, salt);
 		
 		dao.close();
-		response.sendRedirect("loginPage.html");
+		response.sendRedirect("jsp/AdminPage.jsp");
 	}
 
 }

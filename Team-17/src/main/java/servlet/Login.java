@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		response.sendRedirect("loginPage.html");
+		response.sendRedirect("index.html");
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 		dao.close();
 		
 		if (SecurityUtils.isPasswordOk(hashpw, pass, salt)) {
-			response.sendRedirect("jsp/adminPage.jsp");
+			response.sendRedirect("jsp/AdminPage.jsp");
 		} else {
 			response.getWriter().println("Login failed");
 		}

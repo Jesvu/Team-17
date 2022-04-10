@@ -18,7 +18,7 @@ public class Logout extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response)  
                 throws ServletException, IOException {  
         response.setContentType("text/html");
-        request.getRequestDispatcher("adminPage.html").include(request, response);
+        request.getRequestDispatcher("/jsp/AdminPage.jsp").include(request, response);
         
         }
         protected void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -27,6 +27,6 @@ public class Logout extends HttpServlet {
         HttpSession session=request.getSession();  
         session.invalidate();  
 
-        response.sendRedirect("loginPage.html"); 
+        response.sendRedirect("index.html"); 
     }  
 }  

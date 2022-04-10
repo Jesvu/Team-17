@@ -19,9 +19,8 @@ h1 {
 
 article {
 	padding: 10px;
-	margin: 10px;
+	margin: 50px;
 	background: white;
-	flex-direction: column;
 }
 
 section {
@@ -112,12 +111,6 @@ a:hover {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
-
-
-
-
-}
-
 
 .filterDiv {
   float: left;

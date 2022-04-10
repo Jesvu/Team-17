@@ -26,15 +26,15 @@ text-align: center;
 <body>
 <h1>Add a Candidate</h1>
 
-<form action='/add' method='post'>
-Id: <input type='text' name='id' value=""placeholder="Add the id"><br> 
+<form action='/addcandidate' method='post'>
+Id: <input type='number' name='ehdokas_id' value=""placeholder="Add the id"><br> 
 Surname: <input type='text' name='sukunimi' value=""placeholder="Add the surname"><br> 
 Firstname: <input type='text' name='etunimi' value=""placeholder="Add the firstname"><br> 
 Party: <input type='text' name='puolue' value=""placeholder="Add the party"><br> 
 Domicile: <input type='text' name='kotipaikkakunta' value=""placeholder="Add the domicile"><br> 
 Age: <input type='number' name='ika' value=""placeholder="Add the age"><br> 
-Why to Parliament?: <input type='text' name='miksi' value="Add the reason"placeholder=""><br> 
-Progression interests: <input type='text' name='edistaa' value=""placeholder="Add the response"><br> 
+Why to Parliament?: <input type='text' name='miksi_eduskuntaan' value="Add the reason"placeholder=""><br> 
+Progression interests: <input type='text' name='mita_asioita_haluat_edistaa' value=""placeholder="Add the response"><br> 
 Occupation: <input type='text' name='ammatti' value=""placeholder="Add the occupation"><br> 
 <br>
 <input class='input-update' type='submit' name='ok' value='Submit'> 

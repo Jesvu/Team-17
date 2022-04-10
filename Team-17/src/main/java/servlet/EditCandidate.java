@@ -31,10 +31,10 @@ public class EditCandidate extends HttpServlet {
 		
 		if ( idValue != null ) {
 			try {
-				int id = Integer.parseInt(idValue);
+				int ehdokas_id = Integer.parseInt(idValue);
 				
 				Dao dao = new Dao();
-				Info info = dao.getCandidateInfo(id);
+				Info info = dao.getCandidateInfo(ehdokas_id);
 				
 				session.setAttribute("info", info);
 				
