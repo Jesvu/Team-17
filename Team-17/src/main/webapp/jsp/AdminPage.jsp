@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="app.Info"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css.css">
+<title>Admin Page</title>
+</head>
+<body>
+<header>
+	<h1>
+		<a href='/index.html'>Vaalikone</a>
+	</h1>
+</header>	
+
+<div>
+	<article>
+		<div class="tiedot">
+			
+			<c:forEach var="info" items="${sessionScope.allinfos }">
+				<tr>
+					<td>${info.ehdokas_id }</td>
+					<td>${info.sukunimi }</td>
+					<td>${info.etunimi }</td>
+					<td>${info.puolue }</td>
+				 <td>
+	 				<a href="/editcandidate?ehdokas_id=${info.ehdokas_id }"> Muokkaa</a> <br>
+				 </td>
+				 <td>
+	 				<a href="/removecandidate?ehdokas_id=${info.ehdokas_id }">Poista</a>
+				</tr>
+			</c:forEach>
+				<br>
+					<a href="/jsp/addcandidate.jsp">Add a candidate</a>
+				<br>
+
+	<h2>Add user</h2>
+	<form action="/adding" method= "post">
+		<input type="text" name="username" value="">
+		<input type="password" name= "password" value="">
+		<input type="submit" name="send" value= "Add">
+	</form>
+
+	<h1>Logout</h1>
+	<form action="/logout" method="post">
+		<input type="submit" name="send" value="Logout"/>
+	</form>
+</div>
+	</article>
+
+</div>
+	
+
+	<footer>
+		<h1>projekti</h1>
+	</footer>
+</body>
+
+<br><br>
+</body>
+</html>
