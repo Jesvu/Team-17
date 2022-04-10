@@ -23,20 +23,20 @@ public class RemoveCandidate extends HttpServlet {
 			throws IOException, ServletException {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
-		response.sendRedirect("jsp/AdminPage.jsp");
+		response.sendRedirect("/showadmin");
 		Dao dao= new Dao();
 		Info candidate = readCandidate(request);
 		dao.RemoveCandidate(candidate.getEhdokas_id());
 		dao.close();
 		
-		response.sendRedirect("jsp/AdminPage.jsp");
+		response.sendRedirect("/showadmin");
 
 	}
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
 		
-			response.sendRedirect("jsp/AdminPage.jsp");
+			response.sendRedirect("/showadmin");
 	}
 
 	private Info readCandidate(HttpServletRequest request) {

@@ -21,7 +21,12 @@
 	<section>
 		<div class="page">
 			<div class="sidebar">
-			
+				<h2>Login</h2>
+					<form action="/login" method="post">  
+						Name:<input type="text" name="username"/><br/><br/>  
+						Password:<input type="password" name="password"/><br/><br/>  
+						<input type="submit" name='send' value="Login"/>  
+					</form>  
 				<div>
 					<a href='/ehdokkaat'>Ehdokkaat</a>
 				</div>

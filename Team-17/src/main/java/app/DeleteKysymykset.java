@@ -35,7 +35,7 @@ public class DeleteKysymykset extends HttpServlet {
 			kys=dao.deleteKysymykset(kysymys_id);
 		}
 		request.setAttribute("allkysymykset", kys);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/kysymykset.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/showadmin");
 		rd.forward(request, response);
 	}
 }

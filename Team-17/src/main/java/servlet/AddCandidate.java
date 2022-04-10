@@ -42,7 +42,7 @@ public class AddCandidate extends HttpServlet {
 		
 		dao.close();
 		
-		response.sendRedirect("jsp/AdminPage.jsp");
+		response.sendRedirect("/showadmin");
 	}
 
 
