@@ -46,19 +46,13 @@ public class EditCandidate extends HttpServlet {
 			}
 		} else {
 			// Back to list
-			response.sendRedirect("/ehdokkaat");
-			
+			response.sendRedirect("jsp/AdminPage.jsp");
 		}
-	
 	}
-	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
-		
-	
-		
-		
+
 		Dao dao=new Dao();
 		Info candidate = readCandidate(request);
 		
@@ -67,7 +61,7 @@ public class EditCandidate extends HttpServlet {
 		dao.close();
 		
 		
-		response.sendRedirect("/ehdokkaat");
+		response.sendRedirect("jsp/AdminPage.jsp");
 	}
 	
 	private Info readCandidate(HttpServletRequest request) {

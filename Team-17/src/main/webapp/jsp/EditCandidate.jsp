@@ -12,15 +12,19 @@
 </head>
 <style>
 body{
-background-color: #166a8b;
+background-color: #34c3eb;
 align-items: center;
 }
 form{
 font-size: x-large;
 text-align: center;
 }
+h1{
+text-align: center;
+}
 </style>
 
+<h1>Edit The Candidate</h1>
 <body>
 	<form action='./editcandidate' method='post'>
 		Sukunimi: <input type='text' name='SUKUNIMI' value='${sessionScope.info.sukunimi }'><br>

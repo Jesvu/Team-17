@@ -7,8 +7,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add a Candidate</title>
-
 </head>
+
+<style>
+body{
+background-color: #34c3eb;
+align-items: center;
+}
+form{
+font-size: x-large;
+text-align: center;
+}
+h1{
+text-align: center;
+}
+</style>
+
 <body>
 <h1>Add a Candidate</h1>
 

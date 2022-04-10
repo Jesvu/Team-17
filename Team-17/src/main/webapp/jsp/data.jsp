@@ -31,10 +31,7 @@
 				</div>
 			</div>
 		</div>
-
-
-
-		<div>
+<div>
 
 			<article>
 			
@@ -110,36 +107,10 @@
 						</div>
 					</c:forEach>
 			</article>
-
-<c:forEach var="info" items="${sessionScope.allinfos }">
-	<tr>
-		<td>${info.ehdokas_id }</td>
-		<td>${info.sukunimi }</td>
-		<td>${info.etunimi }</td>
-		<td>${info.puolue }</td>
-	 <td>
-	 <a href="/editcandidate?ehdokas_id=${info.ehdokas_id }"> Muokkaa</a> <br>
-	 </td>
-	 <td>
-	 <a href="/removecandidate?ehdokas_id=${info.ehdokas_id }">Poista</a>
-		
-	</tr>
-</c:forEach>
-		<br>
-		<a href="/jsp/addcandidate.jsp">Add a candidate</a>
-		<br>
-		
-
-
 		</div>
 	</section>
-
 	<footer>
 		<h1>projekti</h1>
 	</footer>
 </body>
-
-
-</body>
 </html>
-

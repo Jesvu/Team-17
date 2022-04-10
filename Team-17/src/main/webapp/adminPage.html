@@ -24,17 +24,37 @@
 				</div>
 			</div>
 		</div>
+	</section>	
 <div>
 
 
-<a href="jsp/ShowCandidates.jsp">Candidates</a>
-
-
-
-
-
 			<article>
+			
+<c:forEach var="info" items="${sessionScope.allinfos }">
+	<tr>
+		<td>${info.ehdokas_id }</td>
+		<td>${info.sukunimi }</td>
+		<td>${info.etunimi }</td>
+		<td>${info.puolue }</td>
+	 <td>
+	 <a href="/editcandidate?ehdokas_id=${info.ehdokas_id }"> Muokkaa</a> <br>
+	 </td>
+	 <td>
+	 <a href="/removecandidate?ehdokas_id=${info.ehdokas_id }">Poista</a>
+	</tr>
+</c:forEach>
+		<br>
+		<a href="/jsp/addcandidate.jsp">Add a candidate</a>
+		<br>
+			
 	<div class="tiedot">
+	
+<h2>Add user</h2>
+<form action="/adding" method= "post">
+<input type="text" name="username" value="">
+<input type="password" name= "password" value="">
+<input type="submit" name="send" value= "Add">
+</form>
 
 <h1>Logout</h1>
 <form action="/logout" method="post">
@@ -43,7 +63,7 @@
 </div></article>
 
 		</div>
-	</section>
+	
 
 	<footer>
 		<h1>projekti</h1>
