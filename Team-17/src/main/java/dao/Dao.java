@@ -305,6 +305,19 @@ public Info getCandidateInfo(int ehdokas_id) {
 		}
 		return list;
 	}
+	public void RemoveCandidate(int ehdokas_id) {
+		String sql = "delete from ehdokkaat where ehdokas_id=?";
+		
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+		
+			statement.setInt(1, ehdokas_id);
+			statement.executeUpdate();
+		}catch (SQLException e) {
+				// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 
 }
