@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
     <%@ page import="data.Kysymykset"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="css.css">
 <title>Muokkaa</title>
 </head>
@@ -34,8 +34,8 @@
 
 <h2>Muokkaa kysymystä</h2>
 <form action='./update' method='post'>
-	Kysymys: <input type='text' name='kysymys' value='${requestScope.k.kysymys}'><br>
-	<input type="hidden" name="kysymys_id" value="${requestScope.k.kysymys_id }"> <br>
+	Kysymys: <input type='text' name='kysymys' value='${requestScope.allkysymykset.kysymys}'><br>
+	<input type="hidden" name="kysymys_id" value="${requestScope.allkysymykset.kysymys_id }"> <br>
 	<input type='submit' name='ok' value='Edit'> 
 </form>
 <br><br>

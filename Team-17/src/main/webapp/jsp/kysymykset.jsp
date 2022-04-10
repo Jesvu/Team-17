@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="data.Kysymykset"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="/css.css">
 </head>
 <title>Kysymykset</title>
 
  <body>
+
 
 <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
 
@@ -33,6 +34,20 @@
 			</div>
 		</div>
 	</div>
+    <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
+  <section>
+  <div class="page" >
+            <div class="sidebar">
+          
+              <div>
+                 <a href='/ehdokkaat'>Ehdokkaat</a>
+              </div> 
+              &nbsp;
+              <div>
+               <a href='/showkysymykset'>Kysymykset</a>
+            </div>
+            </div>
+            </div>
             
 <div>
 	<article>
