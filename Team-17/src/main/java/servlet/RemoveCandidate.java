@@ -36,9 +36,9 @@ public class RemoveCandidate extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
 		
-			response.sendRedirect("jsp/AdminPage.jsp"); }
-		
-	
+			response.sendRedirect("jsp/AdminPage.jsp");
+	}
+
 	private Info readCandidate(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		Info candidate=new Info();
