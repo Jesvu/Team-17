@@ -19,7 +19,7 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
+			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "appuser", "kukkuu");
 			                  
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -278,8 +278,7 @@ public Info getCandidateInfo(int ehdokas_id) {
 	}
 	return result;
 }
-	
-	public ArrayList<Info> ReadingAllCandidates() {
+public ArrayList<Info> ReadingAllCandidates() {
 		ArrayList<Info> list=new ArrayList<>();
 		Statement stmt=null;
 		int count=0;
@@ -318,7 +317,6 @@ public Info getCandidateInfo(int ehdokas_id) {
 			e.printStackTrace();
 		}
 	}
-
 
 }
 
