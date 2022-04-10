@@ -51,7 +51,13 @@
 		<p><b>${k.kysymys_id}</b>
 		<b>${k.kysymys}</b>
 		</p>
+		<br>
+		<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
+		<br>
 		</c:forEach>
+		<br>
+		<a href="/jsp/addkysymys.jsp">Lis‰‰ kysymys</a>
+		<br>
  
 	  </div>
         </article>

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="app.Info"%>
+<%@ page import="data.Kysymykset"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,7 @@
 
 <div>
 	<article>
-		<div class="tiedot">
-			
+		<div class="tiedot">			
 			<c:forEach var="info" items="${sessionScope.allinfos }">
 				<tr>
 					<td>${info.ehdokas_id }</td>
@@ -37,22 +37,55 @@
 				<br>
 					<a href="/jsp/addcandidate.jsp">Add a candidate</a>
 				<br>
-
-	<h2>Add user</h2>
-	<form action="/adding" method= "post">
-		<input type="text" name="username" value="">
-		<input type="password" name= "password" value="">
-		<input type="submit" name="send" value= "Add">
-	</form>
-
-	<h1>Logout</h1>
-	<form action="/logout" method="post">
-		<input type="submit" name="send" value="Logout"/>
-	</form>
+        </div>
+	</article>
 </div>
+
+<div>
+	<article>
+		<div class="article">
+			<c:forEach var="k" items="${sessionScope.allkysymykset}">
+				<tr>
+					<td>${k.kysymys_id}</td>
+					<td>${k.kysymys}</td>
+				<td>
+					<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a>
+				</td> 
+				</tr>
+		</c:forEach>
+		
+		<div class="tiedot">
+	  	<c:forEach var="k" items="${requestScope.allkysymykset}">
+		<p><b>${k.kysymys_id}</b>
+		<b>${k.kysymys}</b>
+		</p>
+		</c:forEach>
+		
+				<br>
+					<a href="/jsp/addkysymys.jsp">Lisää kysymys</a>
+				<br>	
+		</div>		
+		</div>	
+	</article>
+</div>
+				
+				
+				
+
+			<h2>Add user</h2>
+			<form action="/adding" method= "post">
+				<input type="text" name="username" value="">
+				<input type="password" name= "password" value="">
+				<input type="submit" name="send" value= "Add">
+			</form>
+
+			<h1>Logout</h1>
+			<form action="/logout" method="post">
+				<input type="submit" name="send" value="Logout"/>
+			</form>
+		</div>
 	</article>
 
-</div>
 	
 
 	<footer>
