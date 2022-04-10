@@ -6,16 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="/css.css">
 </head>
 <title>Kysymykset</title>
 
  <body>
-
-   
-
-   
 
     <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
   <section>
