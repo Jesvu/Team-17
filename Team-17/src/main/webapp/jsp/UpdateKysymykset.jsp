@@ -39,7 +39,7 @@
 	<input type='submit' name='ok' value='Edit'> 
 </form>
 <br><br>
-<a href='/showkysymykset'>Takaisin hallintasivulle</a>
+<a href='/showadmin'>Takaisin hallintasivulle</a>
 </div></article>
 
 		</div>

@@ -4,6 +4,7 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="app.Info"%>
 <%@ page import="data.Kysymykset"%>
+<%@ page import="data.test" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 	</h1>
 </header>	
 
-<div>
+<section>
 	<article>
 		<div class="tiedot">			
 			<c:forEach var="info" items="${sessionScope.allinfos }">
@@ -39,60 +40,55 @@
 				<br>
         </div>
 	</article>
-</div>
 
-<div>
+	<div>
 	<article>
-		<div class="article">
-			<c:forEach var="k" items="${sessionScope.allkysymykset}">
+		<div class="article">	
+			<table>
+				<tr>		
+				</tr>	
+					<c:forEach var="k" items="${sessionScope.allkysymykset}">			
 				<tr>
 					<td>${k.kysymys_id}</td>
 					<td>${k.kysymys}</td>
-				<td>
-					<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a>
-				</td> 
 				</tr>
-		</c:forEach>
+					</c:forEach>
 		
+			</table>
 		<div class="tiedot">
-	  	<c:forEach var="k" items="${requestScope.allkysymykset}">
-		<p><b>${k.kysymys_id}</b>
-		<b>${k.kysymys}</b>
-		</p>
-		</c:forEach>
-		
-				<br>
-					<a href="/jsp/addkysymys.jsp">Lisää kysymys</a>
-				<br>	
-		</div>		
-		</div>	
-	</article>
+	  		<c:forEach var="k" items="${requestScope.allkysymykset}">
+				<p><b>${k.kysymys_id}</b>
+				<b>${k.kysymys}</b>
+				</p>
+			<br>
+				<a href='/delete?id=${k.kysymys_id}'>Poista</a> <a href='/update?id=${k.kysymys_id}'>Muokkaa</a> 
+			<br>
+			</c:forEach>
+			<br>
+				<a href="/jsp/addkysymys.jsp">Lisää kysymys</a>
+			<br>
+ 		</div>
+	  </div>
+	</article>    
 </div>
-				
-				
-				
 
-			<h2>Add user</h2>
-			<form action="/adding" method= "post">
-				<input type="text" name="username" value="">
-				<input type="password" name= "password" value="">
-				<input type="submit" name="send" value= "Add">
-			</form>
+	<article>
+		<h2>Add user</h2>
+		<form action="/adding" method= "post">
+			<input type="text" name="username" value="">
+			<input type="password" name= "password" value="">
+			<input type="submit" name="send" value= "Add">
+		</form>
 
-			<h1>Logout</h1>
-			<form action="/logout" method="post">
-				<input type="submit" name="send" value="Logout"/>
-			</form>
-		</div>
+		<h1>Logout</h1>
+		<form action="/logout" method="post">
+			<input type="submit" name="send" value="Logout"/>
+		</form>
 	</article>
-
-	
+</section>
 
 	<footer>
 		<h1>projekti</h1>
 	</footer>
-</body>
-
-<br><br>
 </body>
 </html>

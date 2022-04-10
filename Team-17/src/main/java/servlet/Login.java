@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 		dao.close();
 		
 		if (SecurityUtils.isPasswordOk(hashpw, pass, salt)) {
-			response.sendRedirect("jsp/AdminPage.jsp");
+			response.sendRedirect("showadmin");
 		} else {
 			response.getWriter().println("Login failed");
 		}

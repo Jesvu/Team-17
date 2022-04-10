@@ -46,7 +46,7 @@ public class EditCandidate extends HttpServlet {
 			}
 		} else {
 			// Back to list
-			response.sendRedirect("jsp/AdminPage.jsp");
+			response.sendRedirect("/showadmin");
 		}
 	}
 	@Override
@@ -61,7 +61,7 @@ public class EditCandidate extends HttpServlet {
 		dao.close();
 		
 		
-		response.sendRedirect("jsp/AdminPage.jsp");
+		response.sendRedirect("/showadmin");
 	}
 	
 	private Info readCandidate(HttpServletRequest request) {

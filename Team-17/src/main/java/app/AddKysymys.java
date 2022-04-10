@@ -30,7 +30,7 @@ public class AddKysymys extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException {
-		response.sendRedirect("/jsp/kysymykset.jsp");
+		response.sendRedirect("/showadmin");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
@@ -47,7 +47,7 @@ public class AddKysymys extends HttpServlet {
 		}
 		
 		request.setAttribute("allkysymykset", kys);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/kysymykset.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/showadmin");
 		rd.forward(request, response);
 	}
 }
