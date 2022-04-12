@@ -55,6 +55,13 @@ CREATE TABLE VASTAUKSET (
    KOMMENTTI VARCHAR(50),
    PRIMARY KEY (EHDOKAS_ID, KYSYMYS_ID)
 );
+-- create login credentials
+CREATE TABLE useraccount(
+id int not null auto_increment primary key,
+username varchar(100) not null,
+hashedpassword varchar(100) not null,
+salt varchar(100) not null
+);
 
 
 -- insert values into the table ehdokkaat
