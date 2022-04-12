@@ -45,15 +45,15 @@
 					<div id="myDropdown" class="dropdown-content">
         
         
-						    <a href="Suomen_Kristillisdemokraatit_(KD)">Suomen Kristillisdemokraatit (KD)</a> 
-						    <a href="Suomen_ruotsalainen_kansanpuolue">Suomen ruotsalainen kansanpuolue</a> 
-							<a href="Vasemmistoliitto">Vasemmistoliitto</a> 
-							<a href="Vihreä_liitto">Vihreä liitto</a> 
-							<a href="Suomen_Keskusta">Suomen Keskusta</a> 
-							<a href="Kansallinen_Kokoomus">Kansallinen Kokoomus</a> 
-							<a href="Suomen_Sosialidemokraattinen_Puolue">Suomen Sosialidemokraattinen Puolue</a>
-							<a href="Itsenäisyyspuolue">Itsenäisyyspuolue</a>
-						    <a href="Suomen_Kommunistinen_Puolue">Suomen Kommunistinen Puolue</a>
+						    <a href="/showdata?puolue=Suomen Kristillisdemokraatit (KD))">Suomen Kristillisdemokraatit (KD)</a> 
+						    <a href="/showdata?puolue=Suomen_ruotsalainen_kansanpuolue">Suomen ruotsalainen kansanpuolue</a> 
+							<a href="/showdata?puolue=Vasemmistoliitto">Vasemmistoliitto</a> 
+							<a href="/showdata?puolue=Vihreä_liitto">Vihreä liitto</a> 
+							<a href="/showdata?puolue=Suomen_Keskusta">Suomen Keskusta</a> 
+							<a href="/showdata?puolue=Kansallinen_Kokoomus">Kansallinen Kokoomus</a> 
+							<a href="/showdata?puolue=Suomen_Sosialidemokraattinen_Puolue">Suomen Sosialidemokraattinen Puolue</a>
+							<a href="/showdata?puolue=Itsenäisyyspuolue">Itsenäisyyspuolue</a>
+						    <a href="/showdata?puolue=Suomen_Kommunistinen_Puolue">Suomen Kommunistinen Puolue</a>
 					</div>
 				</div>
 
@@ -115,7 +115,7 @@
 		</div>
 	</section>
 	<footer>
-		<h1>projekti</h1>
+		<h1>Jussi Rinta-Kiikka, Jesse Vuorela, Tanika Syrjälä</h1>
 	</footer>
 </body>
 </html>

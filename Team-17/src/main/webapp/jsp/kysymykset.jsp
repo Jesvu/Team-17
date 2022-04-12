@@ -34,21 +34,7 @@ pageEncoding="ISO-8859-1"%>
 			</div>
 		</div>
 	</div>
-    <header><h1> <a href='/index.html'>Vaalikone</a></h1></header>
-  <section>
-  <div class="page" >
-            <div class="sidebar">
-          
-              <div>
-                 <a href='/ehdokkaat'>Ehdokkaat</a>
-              </div> 
-              &nbsp;
-              <div>
-               <a href='/showkysymykset'>Kysymykset</a>
-            </div>
-            </div>
-            </div>
-            
+   
 <div>
 	<article>
 		<div class="article">	
@@ -78,7 +64,7 @@ pageEncoding="ISO-8859-1"%>
  
    
    <footer>
-        <h1>projekti</h1>
+        <h1>Jussi Rinta-Kiikka, Jesse Vuorela, Tanika Syrjälä</h1>
     </footer>
 
 	

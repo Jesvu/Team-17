@@ -28,9 +28,8 @@ import dao.Dao;
 	@Override
 	  public void doGet(HttpServletRequest request, HttpServletResponse response) 
 		      throws IOException, ServletException {
-		System.out.println("doget");
 		HttpSession session = request.getSession();
-
+		String puolue=request.getParameter("puolue");
 		
 		Dao dao = new Dao();
 		ArrayList<Info> infos = dao.readAllInfo();
@@ -38,6 +37,7 @@ import dao.Dao;
 		System.out.println("infos " + infos.size());
 		
 		session.setAttribute("allinfos", infos);
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/data.jsp");
 		rd.forward(request,  response);

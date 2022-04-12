@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 
 import app.Info;
+import app.Puolue;
+import data.Game;
 import data.Kysymykset;
 
 //import app.Info;
@@ -63,6 +65,39 @@ public class Dao {
 		return list;
 	}
 
+	public Info getInfoInfo(String puolue) {
+		Info result = null;
+		String sql = "select * from gametable where puolue = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+						
+			stmt.setString(1, puolue);
+			
+			ResultSet resultset = stmt.executeQuery();
+			
+			if (resultset.next()) {
+				result = new Info();
+				result.setEhdokas_id(resultset.getInt("ehdokas_id"));
+				result.setSukunimi(resultset.getString("sukunimi"));
+				result.setEtunimi(resultset.getString("etunimi"));
+				result.setPuolue(resultset.getString("puolue"));
+				result.setKotipaikkakunta(resultset.getString("kotipaikkakunta"));
+				result.setIka(resultset.getInt("ika"));
+				result.setMiksi_eduskuntaan(resultset.getString("miksi_eduskuntaan"));
+				result.setMita_asioita_haluat_edistaa(resultset.getString("mita_asioita_haluat_edistaa"));
+				result.setAmmatti(resultset.getString("ammatti"));
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+	
+	
 	
 	public Kysymykset updateKysymys(Kysymykset k) {
 		try {
@@ -279,6 +314,8 @@ public ArrayList<Info> ReadingAllCandidates() {
 			e.printStackTrace();
 		}
 	}
+
+
 
 }
 

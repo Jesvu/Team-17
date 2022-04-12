@@ -53,7 +53,7 @@ Kysymys<br>
 	</section>
 
 	<footer>
-		<h1>projekti</h1>
+		<h1>Jussi Rinta-Kiikka, Jesse Vuorela, Tanika Syrjälä</h1>
 	</footer>
 </body>
 
